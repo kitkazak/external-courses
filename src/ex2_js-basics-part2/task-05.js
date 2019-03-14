@@ -1,11 +1,11 @@
 var maxValue = function(arr) {
-    return arr.reduce(function(previousValue, currentItem) {
-        if (currentItem > previousValue) {
-            return currentItem;
-        }
+    var max = arr[0];
 
-        return previousValue;
-    });
+    for (var i = 1; i < arr.length; i++) {
+        if (arr[i] > max) max = arr[i];
+    } 
+
+    return max;
 }
 
 module.exports = maxValue;
