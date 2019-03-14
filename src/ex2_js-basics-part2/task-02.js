@@ -1,5 +1,5 @@
 var logArrElements = function(arr) {
-    console.log(arr.length);
+    console.log("Amount of elements: " + arr.length);
 
     for (var i = 0; i < arr.length; i++) {
         console.log(arr[i]);
