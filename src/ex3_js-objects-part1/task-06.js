@@ -1,4 +1,4 @@
-var deepCloneObj = function(obj) {
+var deepClone = function(obj) {
     var clonedObj = {};
 
     for (var key in obj) {
@@ -8,7 +8,7 @@ var deepCloneObj = function(obj) {
 
                 for (var i = 0; i < obj[key].length; i++) {
                     if (typeof obj[key][i] === 'object') {
-                        clonedArr.push(deepCloneObj(obj[key][i]));
+                        clonedArr.push(deepClone(obj[key][i]));
                     } else {
                         clonedArr.push(obj[key][i]);
                     }
@@ -17,7 +17,7 @@ var deepCloneObj = function(obj) {
                 clonedObj[key] = clonedArr;
 
             } else if (typeof obj[key] === 'object') {
-                clonedObj[key] = deepCloneObj(obj[key]);
+                clonedObj[key] = deepClone(obj[key]);
             } else {
                 clonedObj[key] = obj[key];
             }
@@ -27,4 +27,4 @@ var deepCloneObj = function(obj) {
     return clonedObj;
 }
 
-module.exports = deepCloneObj; 
+module.exports = deepClone; 
