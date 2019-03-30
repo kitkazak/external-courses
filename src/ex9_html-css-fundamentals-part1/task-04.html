@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task 04</title>
+    <style>
+        .box {
+            width: 400px;
+            height: 200px;
+            background-color: rgba(46, 204, 113, 1);
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .first {
+            box-shadow: 15px 15px 0px 0px rgba(30, 130, 76, 1),
+            30px 30px 0px 0px rgba(135, 211, 124, 1);
+        }
+
+        .second::after, .second::before {
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 100%;
+        }
+
+        .second::after {
+            background-color: rgba(30, 130, 76, 1);
+            z-index: -1;
+            top: 15px;
+            left: 15px;
+        }
+
+        .second::before {
+            background-color: rgba(135, 211, 124, 1);
+            z-index: -2;
+            top: 30px;
+            left: 30px;
+        }
+
+        .shadow {
+            position: absolute;
+        }
+
+        .shadow:nth-child(1) {
+            background-color: rgba(30, 130, 76, 1);
+            z-index: -1;
+            top: 15px;
+            left: 15px;
+        }
+
+        .shadow:nth-child(2) {
+            background-color: rgba(135, 211, 124, 1);
+            z-index: -2;
+            top: 30px;
+            left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box first"></div>
+    <div class="box second"></div>
+    <div class="box third">
+        <div class="box shadow"></div>
+        <div class="box shadow"></div>
+    </div>
+</body>
+</html>
