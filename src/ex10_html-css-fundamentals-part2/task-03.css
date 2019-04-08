@@ -24,7 +24,8 @@ html, body {
 /* header */
 /* header-top */
 .header-top {
-    margin: 62px 0;
+    padding: 62px 0;
+    border-bottom: 1px solid #d4d4d4;
 }
 
 .header-top-wrap {
@@ -44,7 +45,6 @@ html, body {
     color: #3687c4;
 
     position: relative;
-    right: 20px;
 }
 
 .header-logo img {
@@ -102,6 +102,7 @@ html, body {
     border: 2px solid #d4d4d4;
 }
 
+/* hint triangle */
 .header-hint::after,
 .header-hint::before {
     content: "";
