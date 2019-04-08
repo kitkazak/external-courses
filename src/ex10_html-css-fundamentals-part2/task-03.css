@@ -1,0 +1,125 @@
+/* config */
+
+/* Open Sans */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+html, body {
+    margin: 0;
+    background: white;
+    color: #6d6e71;
+    font-family: 'Open Sans', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.wrap {
+    max-width: 1200px;
+    min-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* header */
+/* header-top */
+.header-top {
+    margin: 62px 0;
+}
+
+.header-top-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* header logo */
+.header-logo {
+    display: flex;
+    flex-basis: 400px;
+    height: 105px;
+    justify-content: center;
+    align-items: center;
+    /* background-image: url("images/logo.png"); */
+    font-size: 40px;
+    color: #3687c4;
+
+    position: relative;
+    right: 20px;
+}
+
+.header-logo img {
+    position: absolute;
+    width: 100%;
+}
+
+/* header topnav */
+.header-topnav {
+    display: flex;
+    flex-basis: 235px;
+    height: 105px;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    position: relative;
+}
+
+.header-icons {
+    display: flex;
+    width: 100%;
+}
+
+.header-icon {
+    flex-basis: 33%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-size: 1.3rem;
+}
+
+.header-icon i {
+    display: flex;
+    align-items: center;
+}
+
+.header-icon-selected {
+    color: #3687c4;
+    position: relative; 
+    font-size: 1.8rem;
+}
+
+.header-icon:not(:last-of-type) {
+    border-right: 1px solid #6d6d6d;
+}
+
+/* header hint */
+.header-hint {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    border: 2px solid #d4d4d4;
+}
+
+.header-hint::after,
+.header-hint::before {
+    content: "";
+    position: absolute;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    top: 100%;
+    left: 50%;
+    margin-left: -14px
+}
+
+.header-hint::before {
+    border-top: 12px solid #d4d4d4;
+
+}
+
+.header-hint::after {
+    top: 43px;
+    border-top: 12px solid white;
+    z-index: 1; 
+}
