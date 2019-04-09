@@ -1,4 +1,4 @@
-Calculator = {
+var Calculator = {
     __state__: 0,
 
     add: function(num) {
