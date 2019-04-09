@@ -1,5 +1,5 @@
 var Calculator = {
-    __state__: 0,
+    state: 0,
 
     add: function(num) {
         // to check if argument is a number
