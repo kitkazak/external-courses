@@ -1,7 +1,7 @@
 /* config */
 
 /* Open Sans */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700');
 
 html, body {
     margin: 0;
@@ -16,7 +16,7 @@ html, body {
 
 .wrap {
     max-width: 1200px;
-    min-width: 600px;
+    min-width: 800px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -135,6 +135,7 @@ html, body {
     margin: 0;
     padding: 0;
     list-style: none;
+    display: flex;
 }
 
 .header-ul li {
@@ -161,4 +162,57 @@ html, body {
     padding: 0 30px 0 15px;
     border: none;
     font-size: 16px;
+}
+
+/* main section */
+
+main {
+    background-image: url("images/background.png");
+    background-repeat: no-repeat;
+    background-position: 38%;
+    background-size: cover;
+
+    height: 1000px;
+}
+
+.showcase {
+    padding-top: 265px;
+    color: #fff;
+}
+
+.showcase h2, .showcase p {
+    margin: 0;
+}
+
+.showcase h2 {
+    font-size: 60px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+}
+
+.showcase p {
+    font-size: 45px;
+    font-weight: 300;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    position: relative;
+    bottom: 90px;
+    left: 40px;
+}
+
+.showcase span {
+    font-weight: bold;
+    font-size: 120px;
+    color: #1faae2;
+    opacity: 0.5;
+    text-shadow: none;
+    padding-right: 10px;
+}
+
+.showcase-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
