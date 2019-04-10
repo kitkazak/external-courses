@@ -272,9 +272,6 @@ main {
     font-weight: bold;
 }
 
-.slider-like span, .slider-like i {
-}
-
 .slider-next {
     width: 100px;
     display: flex;
