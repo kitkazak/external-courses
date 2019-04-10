@@ -1,0 +1,33 @@
+#my-table {
+    border-collapse: collapse;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #666;
+    text-align: center;
+}
+
+#my-table tr td:first-of-type {
+    text-transform: capitalize;
+}
+
+#my-table th {
+    padding: 8px 36px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+
+#my-table td {
+    padding: 12px 24px;
+}
+
+#my-table th, 
+#my-table td {
+    border: 2px solid white;
+}
+
+#my-table tr:nth-child(odd) {
+    background: hsl(215, 33%, 90%);
+}
+
+#my-table tr:nth-child(even) {
+    background: #f2f2f2;
+}
