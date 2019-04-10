@@ -172,12 +172,13 @@ main {
     background-position: 38%;
     background-size: cover;
 
-    height: 1000px;
+    /* height: 1000px; */
 }
 
+/* showcase */
 .showcase {
-    padding-top: 265px;
     color: #fff;
+    padding: 260px 0 140px;
 }
 
 .showcase h2, .showcase p {
@@ -196,8 +197,8 @@ main {
     font-size: 45px;
     font-weight: 300;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    margin-top: -100px;
     position: relative;
-    bottom: 90px;
     left: 40px;
 }
 
@@ -215,4 +216,71 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+/* slider */
+.slider {
+    padding-bottom: 100px;
+}
+
+.slider-wrap {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.slider-container {
+    display: flex;
+    height: 220px;
+}
+
+.slider-image {
+    display: inline-block;
+    width: 320px;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider-image img {
+   position: absolute;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+}
+
+.slider-like {
+    position: absolute;
+    bottom: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 65px;
+
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.slider-like i {
+    font-size: 26px;
+    margin-right: 10px;
+}
+
+.slider-like span {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.slider-like span, .slider-like i {
+}
+
+.slider-next {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f4f4f4;
+    font-size: 60px;
+    color: #d4d4d4;
 }
