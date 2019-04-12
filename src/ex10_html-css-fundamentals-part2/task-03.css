@@ -264,11 +264,19 @@ main {
 }
 
 .slider-image img {
-   position: absolute;
-   top: 0;
-   left: 0;
-   bottom: 0;
-   width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    transition: all 1s ease;
+}
+
+.slider-image:hover img {
+    width: calc(100% + 50px);
+    top: -20px;
+    left: -20px;
+    cursor: pointer;
 }
 
 .slider-like {
@@ -302,6 +310,11 @@ main {
     background: #f4f4f4;
     font-size: 60px;
     color: #d4d4d4;
+}
+
+.slider-next:hover {
+    color: #6d6e71;
+    cursor: pointer;
 }
 
 /* articles section */
