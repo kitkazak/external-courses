@@ -143,6 +143,28 @@ html, body {
     padding: 30px 20px;
     font-size: 13px;
     font-weight: bold;
+    position: relative;
+}
+
+.arrow {
+    content: " ";
+    position: absolute;
+    bottom: 0;  /* At the top of the tooltip */
+    left: 50%;
+    margin-left: -10px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #1faae2 transparent;
+    display: none;
+}
+
+.header-ul li:hover {
+    color: #1faae2;
+    cursor: pointer;
+}
+
+.header-ul li:hover > .arrow {
+    display: block;
 }
 
 .header-ul li:not(:last-of-type) {
