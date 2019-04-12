@@ -303,6 +303,15 @@ main {
     left: 40px;
 }
 
+@media screen and (max-width: 850px) {
+    .showcase p {
+        top: 20px;
+        left: 0;
+        line-height: 0.8;
+        text-align: center;
+    }
+}
+
 .showcase span {
     font-weight: bold;
     font-size: 120px;
