@@ -253,6 +253,11 @@ html, body {
     font-size: 25px;
 }
 
+.header-search i:hover {
+    color: #1faae2;
+    cursor: pointer;
+}
+
 .header-search input {
     padding: 0 0 0 15px;
     border: none;
