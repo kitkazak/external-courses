@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task 01</title>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .img-container {
+            width: 500px;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        img {
+            height: 100%;
+        }
+
+        div {
+            margin-bottom: 50px;
+        }
+
+        .round {
+            border-radius: 50%;
+        }
+
+        .cat-face {
+            mask-image: url("images/cat-face.png");
+        }
+    </style>
+</head>
+<body>
+    <div class="img-container round">
+        <img src="images/space.jpg" alt="space">
+    </div>
+    <div class="img-container cat-face">
+        <img src="images/space.jpg" alt="space">
+    </div>       
+</body>
+</html>
