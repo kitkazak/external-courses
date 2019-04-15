@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task 02</title>
+
+    <style>
+        /* Loader */
+
+        @keyframes loader-animation {
+            0% {
+                top: 6px;
+                height: 51px;
+            }
+
+            50%, 100% {
+                top: 19px;
+                height: 26px;
+            }
+        }
+
+        .loader {
+            width: 64px;
+            height: 64px;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .loader div {
+            position: absolute;
+            width: 13px;
+            background: black;
+            animation: loader-animation 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+        }
+
+        .loader div:nth-child(1) {
+            left: 6px;
+            animation-delay: -0.20s;
+        }
+
+        .loader div:nth-child(2) {
+            left: 26px;
+            animation-delay: -0.10s;
+        }
+
+        .loader div:nth-child(3) {
+            left: 45px;
+            animation-delay: 0s;
+        }
+
+        /* Ball */
+        
+        .stage {
+            position: relative;
+            margin: 0 auto;
+            width: 660px;
+            height: 240px;
+            border: 5px solid black;
+            border-top: none;
+        }
+
+        @keyframes horizontal-animation {
+            0% {
+                left: 0;
+            }
+            100% {
+                left: 640px;
+            }
+        }
+
+        .horizontal {
+            position: absolute;
+            width: 20px;
+            height: 240px;
+
+            animation: horizontal-animation 5s linear infinite alternate;
+        }
+
+        @keyframes vertical-animation {
+            from, to {
+                bottom: 0;
+                animation-timing-function: ease-out;
+            }
+
+            50% {
+                bottom: 220px;
+                animation-timing-function: ease-in;
+            }
+        }
+
+        .vertical {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: black;
+            border-radius: 50%;
+
+            animation: vertical-animation 4s infinite;
+        }
+
+        /* infinite animation */
+        @keyframes infinite-animation {
+            0%, 100% {
+                width: 150px;
+                height: 150px;
+                transform: none;
+                border-radius: 50%;
+                background: linear-gradient(#e66465, #9198e5);
+            }
+
+            16% {
+                border-radius: 0; 
+                transform: none;
+            }
+
+            32% {
+                background: linear-gradient(#dd3e54, #6be585);
+                transform: none;
+                border-radius: 0;
+            }
+
+            48% {
+                width: 200px;
+                height: 200px;
+                transform: skew(30deg, 20deg);
+                border-radius: 0;
+            }
+
+            64% {
+                transform: rotate(720deg);
+                transform: skew(30deg, 20deg);
+                border-radius: 0;
+
+            }
+
+            80% {
+                background: linear-gradient(#EB5757, #000000);
+                transform: skew(30deg, 20deg);
+                border-radius: 0;
+            }
+        }
+
+        .infinite {
+            
+            margin: 0 auto;
+            transition: background 1s ease;
+            animation: infinite-animation 8s linear infinite;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center">Loader</h1>
+    <div class="loader">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <h1 style="text-align: center">Ball between walls</h1>
+    <div class="stage">
+        <div class="horizontal">
+            <div class="vertical"></div>
+        </div>
+    </div>
+    <h1 style="text-align: center; margin-bottom: 60px">Infinite animation</h1>
+    <div class="infinite"></div>
+</body>
+</html>
