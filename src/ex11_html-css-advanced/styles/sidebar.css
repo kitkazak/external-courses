@@ -9,16 +9,16 @@
 
 .sidebar-panel {
     width: 100%;
-    padding-right: 20px;
-    padding-left: 20px;
     background: #1f2637;
     margin-bottom: 6px;
+    border-top: 1px solid #282f41;
     box-shadow: 0 2px 0px #141824;
 }
 
+/* Add-a-book button */
+
 #add-a-book {
-    padding-top: 35px;
-    padding-bottom: 35px;
+    padding: 35px 20px;
 }
 
 #add-a-book button {
@@ -33,13 +33,50 @@
     border-radius: 5px;
     text-transform: uppercase;
     color: white;
+    font-size: 14px;
     font-weight: bold;
 }
 
 #add-a-book i {
-    padding-right: 8px;
+    padding-right: 12px;
 }
 
 #add-a-book button:hover {
     cursor: pointer;
+}
+
+/* Sidebar menu */
+
+#sidebar-menu {
+    padding-bottom: 10px;
+}
+
+#sidebar-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-transform: capitalize;
+}
+
+#sidebar-menu li.selected {
+    background: #15a4fa;
+}
+
+#sidebar-menu li.selected a {
+    color: white;
+}
+
+#sidebar-menu a {
+    display: block;
+    padding: 14px 20px;
+    text-decoration: none;
+    color: #8c97b2;
+}
+
+#sidebar-menu a:hover {
+    color: white;
+}
+
+#sidebar-menu i {
+    padding-right: 8px;
 }
