@@ -2,8 +2,8 @@
     position: fixed;
     left: 0;
     top: 45px;
+    bottom: 45px;
     width: 200px;
-    height: 100vh;
     background: #19202e;
 }
 
