@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dropdown</title>
+
+    <style>
+        #dropdown {
+            width: 150px;
+            margin: 20px auto 0;
+        }
+
+        #dropdown:hover {
+            cursor: pointer;
+        }
+
+        #dropdown li, #top-menu {
+            background: dodgerblue;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        #top-menu {
+            border-top: 2px solid lightsteelblue;
+            border-radius: 0 0 10px 10px;
+        }
+
+        #top-menu.shadow {
+            box-shadow: 0 5px 10px rgba(30, 144, 255, 0.75);
+        }
+
+        #list {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            display: none;
+        }
+
+        #list li.hover {
+            background: royalblue;
+        }
+
+        #dropdown.open ul {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="dropdown">
+        <ul id="list">
+            <li class="hover">Menu 1</li>
+            <li>Menu 2</li>
+            <li>Menu 3</li>
+            <li>Menu 4</li>
+            <li>Menu 5</li>
+        </ul>
+        <div id="top-menu">Top menu</div>
+    </div>
+
+    <script>
+    
+        var dropdown = document.querySelector('#dropdown');
+        var topMenu = document.querySelector('#top-menu');
+        var lits = document.querySelector('#list');
+
+        function onTopMenuClick() {
+            dropdown.classList.toggle('open');
+        }
+
+        function onTopMenuOver() {
+            topMenu.classList.add('shadow');
+        }
+
+        function onTopMenuOut() {
+            topMenu.classList.remove('shadow');
+        }
+
+        topMenu.addEventListener('click', onTopMenuClick);
+        topMenu.addEventListener('mouseover', onTopMenuOver);
+        topMenu.addEventListener('mouseout', onTopMenuOut);
+
+        function onListElementOver(event) {
+            var target = event.target;
+
+            if (target.tagName == 'LI') {
+                target.classList.add('hover');
+            }
+        }
+
+        function onListElementOut(event) {
+            var target = event.target;
+
+            if (target.tagName == 'LI') {
+                target.classList.remove('hover');
+            }
+        }
+
+        list.addEventListener('mouseover', onListElementOver);
+        list.addEventListener('mouseout', onListElementOut);
+    </script>
+</body>
+</html>
