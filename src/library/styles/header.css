@@ -31,6 +31,7 @@ header li, header li::after {
 
 header li:hover, header .profile:hover {
     cursor: pointer;
+    color: white;
 }
 
 header li:first-of-type::after {
