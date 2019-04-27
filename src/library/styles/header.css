@@ -1,0 +1,75 @@
+header {
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 45px;
+    width: 100%;
+    /* font-size: 14px; */
+    background-color: #2f364a;
+}
+
+.header-inner {
+    display: flex;
+    height: 45px;
+    overflow: hidden;
+}
+
+header ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+header li, header li::after {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+
+header li:hover, header .profile:hover {
+    cursor: pointer;
+}
+
+header li:first-of-type::after {
+    content: '';
+    margin: 0 0 0 15px;
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    /* background: url(../images/dot.png); */
+    background-color: #8c97b2;
+    border-radius: 50%;
+
+}
+
+header .profile {
+    display: flex;
+    align-items: center;
+    background: #15a4fa;
+    color: white;
+    padding: 0 20px 0 10px;
+}
+
+header span {
+    margin-right: 10px;
+}
+
+header .avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background: url(../images/avatar.png) no-repeat center/cover;
+}
+
+header i {
+    font-size: 9px;
+    padding: 2px;
+    border-radius: 50%;
+    color: #15a4fa;
+    background: white;
+}
+
