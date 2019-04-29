@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Header</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        article {
+            border: 10px solid coral;
+            border-radius: 12px;
+            margin: 20px;
+            box-shadow: 0px 0px 20px rgba(60, 60, 60, 0.25);
+        }
+
+        h1, p {
+        margin: 0;
+        }
+
+        h1 {
+            padding: 10px;
+            background: moccasin;
+            position: relative;
+        }
+
+        h1::after {
+            content: " ";
+            position: absolute;
+            top: 100%;
+            left: 30px;
+            margin-left: -20px;
+            border-width: 20px;
+            border-style: solid;
+            border-color: moccasin transparent transparent transparent;
+            }
+
+        p {
+            padding: 30px 10px;
+            background: #ffffef;
+        }
+    </style>
+</head>
+<body>
+    <article>
+        <h1>
+            Header
+        </h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. In, veritatis.</p>
+    </article>
+</body>
+</html>
