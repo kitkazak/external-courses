@@ -1,0 +1,83 @@
+main {
+    padding: 45px 0 0 200px;
+}
+
+section.main-head {
+    background: #eef1f7;
+}
+
+h2.main-header, .main-head-menu {
+    border-bottom: 1px solid #dadfea;
+}
+
+h2.main-header {
+    font-weight: 400;
+    font-size: 24px;
+    margin: 0;
+    padding: 20px 20px;
+    color: #444c63;
+}
+
+.main-head-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+.main-head-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-head-menu ul li {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 15px;
+    margin-right: 5px;
+}
+
+.main-head-menu ul li.selected {
+    color: white;
+    background: #97b3ce;
+}
+
+.main-head-menu ul li:hover:not(.selected) {
+    color: #444c63;
+    cursor: pointer;
+}
+
+/* Form */
+
+#search-form {
+    position: relative;
+}
+
+#search-form input[type="text"] {
+    border: 1px solid #dadfea;
+    border-radius: 15px;
+    padding: 0 38px 0 18px;
+    width: 400px;
+    height: 32px;
+
+}
+
+#search-form button[type="submit"] {
+    border: none;
+    background: transparent;
+    display: flex;
+    font-size: 14px;
+    position: absolute;
+    right: 5px;
+    top: 0;
+    align-items: center;
+    height: 100%;
+    color: #8c97b2;
+}
+
+#search-form button[type="submit"]:hover {
+    cursor: pointer;
+    color: #444c63;
+}

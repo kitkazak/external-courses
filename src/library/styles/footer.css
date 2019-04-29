@@ -1,0 +1,33 @@
+footer {
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    bottom: 0;
+    height: 45px;
+    width: 100%;
+    background: #181e2c;
+}
+
+.footer-inner {
+    display: flex;
+    height: 45px;
+}
+
+.footer-info, .footer-settings {
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.footer-info {
+    background: #1f2637;
+}
+
+.footer-settings {
+    background: #15a4fa;
+}
+
+.footer-info:hover, .footer-settings:hover {
+    cursor: pointer;
+}
