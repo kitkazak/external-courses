@@ -5,7 +5,6 @@ header {
     align-items: center;
     height: 45px;
     width: 100%;
-    /* font-size: 14px; */
     background-color: #2f364a;
     z-index: 999;
 }
@@ -41,7 +40,6 @@ header li:first-of-type::after {
     display: inline-block;
     width: 5px;
     height: 5px;
-    /* background: url(../images/dot.png); */
     background-color: #8c97b2;
     border-radius: 50%;
 
