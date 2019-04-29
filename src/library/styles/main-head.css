@@ -1,9 +1,12 @@
 main {
     padding: 45px 0 0 200px;
+    position: relative;
 }
 
 section.main-head {
     background: #eef1f7;
+    /* width: 100%;
+    position: absolute; */
 }
 
 h2.main-header, .main-head-menu {
