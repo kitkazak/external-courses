@@ -11,4 +11,9 @@ body {
     color: #8c97b2;
     font-size: 14px;
     margin: 0;
+    overflow-x: hidden;
+}
+
+main {
+    min-width: 1070px;
 }
