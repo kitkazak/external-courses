@@ -3,7 +3,7 @@ function Hangman(word) {
         errorsLeft,
         wrongSymbols;
 
-    resetGame(word);    
+    initGame(word);    
 
     this.guess = function(guessedChar) {
         if (!errorsLeft) {
@@ -55,10 +55,10 @@ function Hangman(word) {
     }
 
     this.startAgain = function(newWord) {
-        resetGame(newWord);
+        initGame(newWord);
     }
 
-    function resetGame(newWord) {
+    function initGame(newWord) {
         guessedString = '_'.repeat(newWord.length);
         errorsLeft = 6;
         wrongSymbols = [];
