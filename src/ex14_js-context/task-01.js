@@ -46,9 +46,9 @@ var Calculator = {
     },
 
     fetchData: function(callback) {
-        if ( !isNaN(callback(500)) ) {
-            this.state = 500;
-        } 
+        setTimeout(function() {
+            callback(500);
+        }, 1000);
         
         return this;
     }
