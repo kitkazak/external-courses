@@ -1,10 +1,12 @@
 function Hangman(word) {
-    var guessedString = '_'.repeat(word.length),
-        errors = 6,
-        wrongSymbols = [];
+    var guessedString,
+        errorsLeft,
+        wrongSymbols;
+
+    resetGame(word);    
 
     this.guess = function(guessedChar) {
-        if (!errors) {
+        if (!errorsLeft) {
             console.log('Game Over!');
             return this;
         }
@@ -26,10 +28,10 @@ function Hangman(word) {
         if (isGuessed) {
             console.log(guessedString);
         } else {
-            errors--;
+            errorsLeft--;
             wrongSymbols.push(guessedChar);
             console.log(
-                `Wrong letter, errors left ${errors} | ${wrongSymbols}`
+                `Wrong letter, errors left ${errorsLeft} | ${wrongSymbols}`
             )
         }
 
@@ -41,7 +43,7 @@ function Hangman(word) {
     };
 
     this.getErrorsLeft = function() {
-        return errors;
+        return errorsLeft;
     };
 
     this.getWrongSymbols = function() {
@@ -49,12 +51,16 @@ function Hangman(word) {
     };
 
     this.getStatus = function() {
-        return `${guessedString} | errors left ${errors}`;
+        return `${guessedString} | errors left ${errorsLeft}`;
     }
 
     this.startAgain = function(newWord) {
+        resetGame(newWord);
+    }
+
+    function resetGame(newWord) {
         guessedString = '_'.repeat(newWord.length);
-        errors = 6;
+        errorsLeft = 6;
         wrongSymbols = [];
     }
 }
