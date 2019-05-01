@@ -1,40 +1,44 @@
 var Calculator = {
     state: 0,
 
+    __isNumeric: function(value) {
+        return !isNaN(parseFloat(value)) && isFinite(value);
+    },
+
     getResult: function() {
         return this.state;
     },
 
     setState: function(num) {
-        if (num !== undefined) {
+        if (this.__isNumeric(num)) {
             this.state = num;    
         }
         return this;
     },
 
     add: function(num) {
-        if (num !== undefined) {
+        if (this.__isNumeric(num)) {
             this.state += num;
         }
         return this;
     },
 
     subtract: function(num) {
-        if (num !== undefined) {
+        if (this.__isNumeric(num)) {
             this.state -= num;
         }
         return this;
     },
 
     multiply: function(num) {
-        if (num !== undefined) {
+        if (this.__isNumeric(num)) {
             this.state *= num;
         }
         return this;
     },
 
     divide: function(num) {
-        if (num !== undefined) {
+        if (this.__isNumeric(num)) {
             this.state /= num;
         }
         return this;
