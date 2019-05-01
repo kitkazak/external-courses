@@ -43,7 +43,7 @@ function createBook(bookObj) {
     // Create author span element
     var author = document.createElement('span');
     author.classList.add('book-author');
-    author.innerHTML = `${bookObj.author.firstName} ${bookObj.author.lastName}`;
+    author.innerHTML = `by ${bookObj.author.firstName} ${bookObj.author.lastName}`;
     bookContainer.appendChild(author);
 
     // Create rating
