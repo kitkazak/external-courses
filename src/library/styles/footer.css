@@ -1,4 +1,4 @@
-footer {
+.footer {
     position: fixed;
     display: flex;
     justify-content: flex-end;
@@ -8,26 +8,26 @@ footer {
     background: #181e2c;
 }
 
-.footer-inner {
+.footer__inner {
     display: flex;
     height: 45px;
 }
 
-.footer-info, .footer-settings {
+.footer__info, .footer__settings {
     padding: 0 20px;
     display: flex;
     align-items: center;
     color: white;
 }
 
-.footer-info {
+.footer__info {
     background: #1f2637;
 }
 
-.footer-settings {
+.footer__settings {
     background: #15a4fa;
 }
 
-.footer-info:hover, .footer-settings:hover {
+.footer__info:hover, .footer__settings:hover {
     cursor: pointer;
 }
