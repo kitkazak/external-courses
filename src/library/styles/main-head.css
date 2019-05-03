@@ -1,17 +1,17 @@
-main {
+.main {
     padding: 45px 0 0 200px;
     position: relative;
 }
 
-section.main-head {
+.main__head {
     background: #eef1f7;
 }
 
-h2.main-header, .main-head-menu {
+.main__header, .main__head-menu {
     border-bottom: 1px solid #dadfea;
 }
 
-h2.main-header {
+.main__header {
     font-weight: 400;
     font-size: 24px;
     margin: 0;
@@ -19,7 +19,7 @@ h2.main-header {
     color: #444c63;
 }
 
-.main-head-menu {
+.main__head-menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -27,36 +27,36 @@ h2.main-header {
     font-size: 14px;
 }
 
-.main-head-menu ul {
+.main__head-menu ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-.main-head-menu ul li {
+.main__head-menu ul li {
     display: inline-block;
     padding: 4px 10px;
     border-radius: 15px;
     margin-right: 5px;
 }
 
-.main-head-menu ul li.selected {
+.main__head-nav_selected {
     color: white;
     background: #97b3ce;
 }
 
-.main-head-menu ul li:hover:not(.selected) {
+.main__head-menu ul li:hover:not(.selected) {
     color: #444c63;
     cursor: pointer;
 }
 
 /* Form */
 
-#search-form {
+#main__search-form {
     position: relative;
 }
 
-#search-form input[type="text"] {
+#main__search-form input[type="text"] {
     border: 1px solid #dadfea;
     border-radius: 15px;
     padding: 0 38px 0 18px;
@@ -65,7 +65,7 @@ h2.main-header {
 
 }
 
-#search-form button[type="submit"] {
+#main__search-form button[type="submit"] {
     border: none;
     background: transparent;
     display: flex;
@@ -78,7 +78,7 @@ h2.main-header {
     color: #8c97b2;
 }
 
-#search-form button[type="submit"]:hover {
+#main__search-form button[type="submit"]:hover {
     cursor: pointer;
     color: #444c63;
 }
