@@ -1,4 +1,4 @@
-#books {
+.books {
     padding: 30px 20px 100px;
     margin: 0 auto;
     display: flex;
@@ -9,36 +9,36 @@
     margin: 0 20px 30px 0;
 }
 
-.book-cover {
+.book__cover {
     width: 200px;
     height: 275px;
     overflow: hidden;
 }
 
-.book-cover img {
+.book__cover img {
     width: 100%;
 }
 
-.book-title {
+.book__title {
     font-weight: 400;
     font-size: 16px;
     color: #444c63;
     margin: 15px 0 0;
 }
 
-.book-author {
+.book__author {
     display: inline-block;
     font-size: 14px;
     margin: 5px 0 0;
 }
 
-.book-rating ul {
+.book__rating ul {
     margin: 5px 0 0;
     padding: 0;
     list-style-type: none;
 }
 
-.book-rating li {
+.book__rating li {
     display: inline-block;
     color: #ffab00;
 }
