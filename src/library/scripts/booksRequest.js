@@ -2,6 +2,7 @@ var booksArr;
 
 window.onload = function() {
     booksArr = booksRequest();
+    console.log(booksArr);
 
     var booksSection = document.querySelector('.books');
     booksArr.forEach(function(bookObj) {
@@ -47,22 +48,35 @@ function createBook(bookObj) {
 
     // Create rating
     var rating = document.createElement('div');
-        rating.appendChild(document.createElement('ul'));
         rating.classList.add('book__rating');
 
-    // Create rating's stars
-    for (let i = 0; i < 5; i++) {
-        var starContainer = document.createElement('li');
-        var starIcon = document.createElement('i'); 
-        starIcon.classList.add('fa');
-        starIcon.classList.add('fa-star');
-        starIcon.setAttribute('aria-hidden', 'true');
-
-        starContainer.appendChild(starIcon);
-        rating.appendChild(starContainer);
-    }
-    
+    rating.appendChild(setRating(bookObj.rating));
     bookContainer.appendChild(rating);
 
     return bookContainer;
+}
+
+function setRating(bookObjRating) {
+    var rating = bookObjRating,
+        ratingContainer = document.createElement('ul');
+
+    for (let i = 0; i < 5; i++) {
+        var starContainer = document.createElement('li');
+            starIcon = document.createElement('i');
+
+        starIcon.setAttribute('aria-hidden', 'true');
+        starIcon.classList.add('fa-star');
+        
+        if (rating) {
+            starIcon.classList.add('fa');
+            rating--;
+        } else {
+            starIcon.classList.add('far');
+        }
+
+        starContainer.appendChild(starIcon);
+        ratingContainer.appendChild(starContainer);
+    }
+
+    return ratingContainer;
 }
