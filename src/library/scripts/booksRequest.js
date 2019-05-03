@@ -2,7 +2,6 @@ var booksArr;
 
 window.onload = function() {
     booksArr = booksRequest();
-    console.log(booksArr);
 
     var booksSection = document.querySelector('.books');
     booksArr.forEach(function(bookObj) {
