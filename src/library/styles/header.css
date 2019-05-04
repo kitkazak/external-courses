@@ -29,7 +29,7 @@
     margin-right: 15px;
 }
 
-.header li:hover, .header .profile:hover {
+.header li:hover, .header__profile:hover {
     cursor: pointer;
     color: white;
 }

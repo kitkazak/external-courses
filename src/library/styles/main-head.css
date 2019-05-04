@@ -45,7 +45,7 @@
     background: #97b3ce;
 }
 
-.main__head-menu ul li:hover:not(.selected) {
+.main__head-menu ul li:hover:not(.main__head-nav_selected) {
     color: #444c63;
     cursor: pointer;
 }
