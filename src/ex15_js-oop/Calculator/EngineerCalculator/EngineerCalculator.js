@@ -25,17 +25,3 @@ EngineerCalculator.prototype.pow = function(num) {
     }
     return this;
 }
-
-EngineerCalculator.prototype.calculate = function(operation) {
-    var re = /(?:(?:^|[-+_*/])(?:\s*-?\d+(\.\d+)?(?:[eE][+-]?\d+)?\s*))+$/;
-
-    // if (re.test(operation)) {
-    //     this.__state = eval(operation);
-    // } else {
-    //     console.log(
-    //         'Input must be a valid mathematical expression!'
-    //     );
-    // }    
-
-    return this;
-}
