@@ -1,18 +1,8 @@
 function mySlice(array, begin, end) {
     var slicedArr = [],
-        
         // lint: no-param-reassign
-        start = begin,
-        finish = end;
-
-
-    if (finish === undefined) {
-        finish = array.length;
-    }
-
-    if (start === undefined) {
-        start = 0;
-    }
+        start = begin ? begin : 0,
+        finish = end ? end : array.length;
 
     if (start >= 0 && finish >= 0) {
         for (var i = start; i < finish; i++) {
@@ -22,11 +12,11 @@ function mySlice(array, begin, end) {
         for (i = start; i < array.length + end; i++) {
             slicedArr.push(array[i]);
         }
-    } else if (start <= -1 && finish >= 0 && array.length + start < finish) {
+    } else if (start <= -1 && finish >= 0 && (array.length + start < finish)) {
         for (i = array.length + start; i < finish; i++) {
             slicedArr.push(array[i]);
         }
-    } else if (start <= -1 && finish <= -1 && array.length + start < array.length + finish) {
+    } else if (start <= -1 && finish <= -1 && (array.length + start < array.length + finish)) {
         for (i = array.length + start; i < array.length + finish; i++) {
             slicedArr.push(array[i]);
         }
