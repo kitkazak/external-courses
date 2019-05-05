@@ -21,6 +21,8 @@ AccountantCalculator.prototype.rubToUsd = function(rub) {
     } else {
         console.log('Input value must be a number!');
     }
+
+    return this;
 }
 
 AccountantCalculator.prototype.usdToRub = function(usd) {
@@ -29,4 +31,6 @@ AccountantCalculator.prototype.usdToRub = function(usd) {
     } else {
         console.log('Input value must be a number!');
     }
+
+    return this;
 }
