@@ -1,8 +1,30 @@
-.books {
+/* .books {
     padding: 30px 20px 100px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
+    position: absolute;
+    top: 175px;
+    height: 100vh;
+} */
+
+.books {
+    position: absolute;
+    width: calc(100% - 200px);
+    height: calc(100% - 45px - 123px);
+    top: calc(123px + 45px);
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.books__container {
+    padding: 30px 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.books__blank-space {
+    height: 100px;
 }
 
 .book {

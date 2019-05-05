@@ -3,7 +3,7 @@ var booksArr;
 window.onload = function() {
     booksArr = booksRequest();
 
-    var booksSection = document.querySelector('.books');
+    var booksSection = document.querySelector('.books__container');
     booksArr.forEach(function(bookObj) {
         var book = createBook(bookObj);
         booksSection.appendChild(book);

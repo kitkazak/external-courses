@@ -1,10 +1,14 @@
 .main {
     padding: 45px 0 0 200px;
+    width: 100%;
+    height: calc(100vh - 45px);
     position: relative;
 }
 
 .main__head {
     background: #eef1f7;
+    position: absolute;
+    width: calc(100% - 200px);
 }
 
 .main__header, .main__head-menu {
