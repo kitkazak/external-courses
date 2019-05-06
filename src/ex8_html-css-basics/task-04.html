@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan" rel="stylesheet"> 
+    <!-- external css -->
+    <link rel="stylesheet" href="task-04.css">
+    <style>
+        .green-bg {
+            background: green;
+        }
+
+        .img-bg {
+            background-image: url("https://abduzeedo.com/sites/default/files/styles/home_cover/public/originals/malibu_pier_fabio_sasso_1400px.jpg?itok=c01lStOj");
+            background-size: cover;
+        }
+
+        .hex-bg {
+            background: #c45;
+        }
+
+        .lg-header {
+            font-size: 4rem;
+        }
+    </style>
+    <title>Task 02</title>
+</head>
+<body>
+    <h1>HTML Basics</h1>
+    
+    <h2>Lists</h2>
+    
+    <h3>Ordered list</h3>
+    <ol class="img-bg">
+        <li>first item</li>
+        <li>second item</li>
+        <li>third item</li>
+        <li>fourth item</li>
+        <li>fifth item</li>
+    </ol>
+
+    <h3 class="hex-bg">Unordered list</h3>
+    <ul>
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+        <li>D</li>
+        <li>E</li>
+    </ul>
+
+    <div class="green-bg">
+        <h3>Description List</h3>
+        <dl>
+            <dt>Name</dt>
+            <dd>Godzilla</dd>
+            <dt>Born</dt>
+            <dd>1952</dd>
+            <dt>Birthplace</dt>
+            <dd>Japan</dd>
+            <dt>Color</dt>
+            <dd>Green</dd> 
+        </dl>
+
+        <h3>Nested list</h3>
+        <!-- inline style -->
+        <ul style="width: 50px">
+            <li>List item one</li>
+            <li>
+                List item with two subitems
+                <ul>
+                    <li>
+                        Subitem 1
+                        <ul>
+                            <li>Subsubitem 1</li>
+                            <li>Subsubitem 1</li>
+                        </ul>
+                    </li>
+                    <li>Subitem 2</li>
+                </ul>
+            </li>
+            <li>Final list item</li>
+        </ul>
+    </div>
+
+    <h3 class="lg-header">List with links</h3>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+    
+    <hr>
+
+    <h2>Paragraphs</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem animi voluptas ipsum, dolor in ex a illum deleniti doloremque consequuntur sequi sint totam placeat iusto blanditiis, esse, fuga dolorem et.Nostrum repudiandae quis eveniet magni! Voluptas dolore minima quam accusamus quaerat est, officiis vel sunt harum explicabo sint distinctio ducimus optio aspernatur, commodi omnis ea fugiat rem expedita voluptatem quibusdam!</p>
+
+    <p class="baloo-font">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur, nobis. <br>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, ullam? <br>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, aliquid! <br>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, dolorem. <br>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti, molestias? <br>
+        Velit veritatis nemo aperiam repudiandae modi quis rem non id. <br>
+        Repudiandae placeat numquam veniam. Dolorum iusto maxime dolores molestiae fugiat! <br>
+        Magnam odit nam debitis porro tempore amet ipsam optio exercitationem! <br>
+        Ea quo libero ratione nihil architecto consectetur. In, eos officia. <br>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. A, consequuntur?
+    </p>
+
+    <hr>
+
+    <h2>Tables</h2>
+    <table>
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+        </tr>
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+        </tr>
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <h2>Image</h2>
+    <img src="https://img.theculturetrip.com/wp-content/uploads/2018/05/maxpixel-freegreatpicture-com-persian-cat-the-difference-is-cat-cute-white-cat-1092371.jpg" alt="Cute cat" width="350">
+
+    <hr>
+
+    <h2>Pre tag</h2>
+    <pre>
+        if (time == 20) {
+            greeting = 'Good day!';
+        } else {
+            greeting = 'Good evening!';
+        }
+    </pre>
+</body>
+</html>
