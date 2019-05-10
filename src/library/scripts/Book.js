@@ -1,5 +1,7 @@
 function Book(bookObj) {
 
+    var currentRating = bookObj.rating;
+
     this.getDOMElement = function() {
         return DOMElement;
     }
@@ -8,11 +10,12 @@ function Book(bookObj) {
 
     function createBook(bookObj) {
         var bookContainer = document.createElement('div');
-            bookContainer.classList.add('book');
+        bookContainer.classList.add('book');
+        bookContainer.setAttribute('data-book-id', bookObj.id);
     
         // Create header
         var bookCover = document.createElement('div');
-            bookCover.classList.add('book__cover');
+        bookCover.classList.add('book__cover');
             
         var img = new Image();
         img.src = bookObj.image_url;
@@ -35,39 +38,88 @@ function Book(bookObj) {
     
         // Create rating
         var rating = document.createElement('div');
-            rating.classList.add('book__rating');
+        rating.classList.add('book__rating');
     
         rating.appendChild(setRating(bookObj.rating));
-        rating.onclick = function(e) {
-            if (e.target === this || e.target.tagName === 'UL') return;
-            var target = e.target;
-            console.log(target.tagName);
 
-            while (target.tagName !== 'LI') {
-                target = target.parentNode;
-            }
-            console.log(target.tagName);
-
-            var stars = this.querySelectorAll('li');
-            var targetStarIndex;
-
-            for (let i = 0; i < stars.length; i++) {
-                if (target === stars[i]) {
-                    targetStarIndex = i + 1;
-                }
-            }
-
-            console.log(targetStarIndex);
-
-            this.replaceChild(
-                setRating(targetStarIndex),
-                this.querySelector('ul')
-            ) 
-        }
+        rating.addEventListener('click', ratingOnClick);
+        rating.addEventListener('mouseover', ratingOnMouseOver);
+        rating.addEventListener('mouseout', ratingOnMouseOut);
+        rating.addEventListener('mouseleave', ratingOnMouseLeave);
 
         bookContainer.appendChild(rating);
 
         return bookContainer;
+    }
+
+    function ratingOnClick(e) {
+        if (e.target === this || e.target.tagName === 'UL') return;
+        var target = e.target;
+
+        while (target.tagName !== 'LI') {
+            target = target.parentNode;
+        }
+
+        var stars = this.querySelectorAll('li');
+        var targetStarIndex;
+
+        for (let i = 0; i < stars.length; i++) {
+            if (target === stars[i]) {
+                targetStarIndex = i + 1;
+            }
+        }
+
+        if (targetStarIndex === currentRating) {
+            currentRating = 0;
+            this.replaceChild(
+                setRating(0),
+                this.querySelector('ul')
+            );
+            return;
+        }
+
+        currentRating = targetStarIndex;
+        this.replaceChild(
+            setRating(targetStarIndex),
+            this.querySelector('ul')
+        )
+    }
+
+    function ratingOnMouseOver(e) {
+        if (e.target === this || e.target.tagName === 'UL') return;
+        var target = e.target;
+
+        while (target.tagName !== 'LI') {
+            target = target.parentNode;
+        }
+
+        var stars = this.querySelectorAll('li'),
+            targetStarIndex;
+
+        for (let i = 0; i < stars.length; i++) {
+            if (target === stars[i]) {
+                targetStarIndex = i + 1;
+            }
+        }
+
+        this.replaceChild(
+            setRating(targetStarIndex),
+            this.querySelector('ul')
+        )
+    }
+
+    function ratingOnMouseOut() {
+        this.replaceChild(
+            setRating(currentRating),
+            this.querySelector('ul')
+        )
+    }
+
+    function ratingOnMouseLeave() {
+        this.replaceChild(
+            setRating(currentRating),
+            this.querySelector('ul')
+        )
     }
 
     function setRating(bookObjRating) {
@@ -76,7 +128,7 @@ function Book(bookObj) {
     
         for (let i = 0; i < 5; i++) {
             var starContainer = document.createElement('li');
-                starIcon = document.createElement('i');
+            starIcon = document.createElement('i');
     
             starIcon.setAttribute('aria-hidden', 'true');
             starIcon.classList.add('fa-star');

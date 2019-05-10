@@ -56,8 +56,12 @@
 
 .book__rating ul {
     margin: 5px 0 0;
-    padding: 0;
+    padding: 0 5px 5px 5px;
+    display: inline-block;
     list-style-type: none;
+    position: relative;
+    top: 5px;
+    right: 5px;
 }
 
 .book__rating li {
