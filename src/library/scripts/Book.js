@@ -1,4 +1,7 @@
 function Book(bookObj) {
+    var name = bookObj.title,
+    author = `${bookObj.author.firstName} ${bookObj.author.lastName}`;
+
 
     var currentRating = bookObj.rating;
 
@@ -43,9 +46,9 @@ function Book(bookObj) {
         rating.appendChild(setRating(bookObj.rating));
 
         rating.addEventListener('click', ratingOnClick);
-        rating.addEventListener('mouseover', ratingOnMouseOver);
-        rating.addEventListener('mouseout', ratingOnMouseOut);
-        rating.addEventListener('mouseleave', ratingOnMouseLeave);
+        // rating.addEventListener('mouseover', ratingOnMouseOver);
+        // rating.addEventListener('mouseout', ratingOnMouseOut);
+        // rating.addEventListener('mouseleave', ratingOnMouseLeave);
 
         bookContainer.appendChild(rating);
 
@@ -74,53 +77,69 @@ function Book(bookObj) {
             this.replaceChild(
                 setRating(0),
                 this.querySelector('ul')
-            );
-            return;
+            )
+        } else {
+            currentRating = targetStarIndex;
+            this.replaceChild(
+                setRating(targetStarIndex),
+                this.querySelector('ul')
+            )           
         }
 
-        currentRating = targetStarIndex;
-        this.replaceChild(
-            setRating(targetStarIndex),
-            this.querySelector('ul')
-        )
-    }
+        var ratingChangeEvent = new CustomEvent('ratingChange', {
+            bubbles: true,
 
-    function ratingOnMouseOver(e) {
-        if (e.target === this || e.target.tagName === 'UL') return;
-        var target = e.target;
-
-        while (target.tagName !== 'LI') {
-            target = target.parentNode;
-        }
-
-        var stars = this.querySelectorAll('li'),
-            targetStarIndex;
-
-        for (let i = 0; i < stars.length; i++) {
-            if (target === stars[i]) {
-                targetStarIndex = i + 1;
+            detail: {
+                changedBookAuthor: author,
+                changedBookName: name 
             }
-        }
+        });
 
-        this.replaceChild(
-            setRating(targetStarIndex),
-            this.querySelector('ul')
-        )
+        this.dispatchEvent(ratingChangeEvent);
     }
 
-    function ratingOnMouseOut() {
-        this.replaceChild(
-            setRating(currentRating),
-            this.querySelector('ul')
-        )
-    }
+    // function ratingOnMouseOver(e) {
+    //     if (e.target === this || e.target.tagName === 'UL') return;
+    //     var target = e.target;
 
-    function ratingOnMouseLeave() {
-        this.replaceChild(
-            setRating(currentRating),
-            this.querySelector('ul')
-        )
-    }
+    //     while (target.tagName !== 'LI') {
+    //         target = target.parentNode;
+    //     }
+
+    //     var stars = this.querySelectorAll('li'),
+    //         targetStarIndex;
+
+    //     for (let i = 0; i < stars.length; i++) {
+    //         if (target === stars[i]) {
+    //             targetStarIndex = i + 1;
+    //         }
+    //     }
+
+    //     this.replaceChild(
+    //         setRating(targetStarIndex),
+    //         this.querySelector('ul')
+    //     )
+    // }
+
+    // function ratingOnMouseOut(e) {
+    //     if (e.relatedTarget.tagName !== '') {
+
+    //     }
+
+    //     this.replaceChild(
+    //         setRating(currentRating),
+    //         this.querySelector('ul')
+    //     );
+    //     console.log('out')
+    // }
+
+    // function ratingOnMouseLeave() {
+    //     this.replaceChild(
+    //         setRating(currentRating),
+    //         this.querySelector('ul')
+    //     );
+    //     console.log('leave')
+    // }
 
     function setRating(bookObjRating) {
         var rating = bookObjRating,
