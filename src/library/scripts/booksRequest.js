@@ -1,19 +1,18 @@
-var booksArr;
+const booksRequest = () => {
+    const url = 'https://rsu-library-api.herokuapp.com/books';
 
-window.onload = function() {
-    booksArr = booksRequest();
+    fetch(url)
+    .then(res => res.json())
+    .then(JSONToBooks)
+    .catch(console.log)
 
-    var booksSection = document.querySelector('.books__container');
-    booksArr.forEach(function(bookObj) {
-        var book = new Book(bookObj);
-        booksSection.appendChild(book.getDOMElement());
-    });
+    function JSONToBooks(JSON) {
+        var booksSection = document.querySelector('.books__container');
+        JSON.forEach(function(obj) {
+            var book = new Book(obj);
+            booksSection.append(book.getDOMElement())
+        })
+    }
 }
 
-function booksRequest() {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://rsu-library-api.herokuapp.com/books', false);
-    xhr.send();
-
-    return JSON.parse(xhr.responseText);
-}
+window.addEventListener('load', booksRequest);
