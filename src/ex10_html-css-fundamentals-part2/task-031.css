@@ -28,12 +28,6 @@ html, body {
     border-bottom: 1px solid #eceef4;
 }
 
-@media screen and (max-width: 1345px) {
-    .header-top {
-        display: none;
-    }
-}
-
 .header-top-wrap {
     display: flex;
     justify-content: space-between;
@@ -146,12 +140,6 @@ html, body {
     margin: 0 auto;
 }
 
-@media screen and (max-width: 1345px) {
-    .header-menu {
-        padding: 15px 20px;
-    }
-}
-
 .header-nav {
     display: flex;
 
@@ -162,12 +150,6 @@ html, body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-@media screen and (max-width: 1345px) {
-    .header-nav-button {
-        display: flex;
-    }
 }
 
 .burger {
@@ -188,12 +170,6 @@ html, body {
     display: none;
     justify-content: center;
     align-items: center;
-}
-
-@media screen and (max-width: 1345px) {
-    .menu-logo {
-        display: flex;
-    }
 }
 
 .menu-logo-inner {
@@ -217,12 +193,6 @@ html, body {
     padding: 0;
     list-style: none;
     display: flex;
-}
-
-@media screen and (max-width: 1345px) {
-    .header-ul {
-        display: none;
-    }
 }
 
 .header-ul li {
@@ -288,13 +258,6 @@ main {
 
 }
 
-@media screen and (max-width: 1345px) {
-    main {
-        background-image: url("images/background-table.png");
-        background-position: 38% -50px;
-    }
-}
-
 /* showcase */
 .showcase {
     color: #fff;
@@ -322,15 +285,6 @@ main {
     left: 40px;
 }
 
-@media screen and (max-width: 850px) {
-    .showcase p {
-        top: 20px;
-        left: 0;
-        line-height: 0.8;
-        text-align: center;
-    }
-}
-
 .showcase span {
     font-weight: bold;
     font-size: 120px;
@@ -355,14 +309,6 @@ main {
     max-width: 1200px;
     min-width: 800px;
     padding-bottom: 150px;
-}
-
-@media screen and (max-width: 1345px) {
-    .slider {
-        visibility: hidden;
-        padding-bottom: 0;
-        margin-bottom: -50px;
-    }
 }
 
 .slider-container {
@@ -443,31 +389,12 @@ main {
     justify-content: space-between;
 }
 
-@media screen and (max-width: 1345px) {
-    .articles-wrap {
-        flex-direction: column;
-    }
-}
-
 .article-container {
     display: flex;
-    flex-basis: 220px;
-}
-
-@media screen and (min-width: 1345px) {
-    .article-container {
-        flex-basis: 520px
-    }
 }
 
 .article-container:first-of-type {
     margin-right: 20px;
-}
-
-@media screen and (max-width: 1345px) {
-    .article-container:first-of-type {
-        margin-right: 0;
-    }
 }
 
 .article-img {
