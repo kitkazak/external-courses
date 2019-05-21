@@ -349,6 +349,11 @@ main {
 
 /* slider */
 .slider {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 auto;
+    max-width: 1200px;
+    min-width: 800px;
     padding-bottom: 150px;
 }
 
@@ -358,11 +363,6 @@ main {
         padding-bottom: 0;
         margin-bottom: -50px;
     }
-}
-
-.slider-wrap {
-    display: flex;
-    justify-content: flex-end;
 }
 
 .slider-container {
