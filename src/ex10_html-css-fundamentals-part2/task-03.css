@@ -48,7 +48,6 @@ html, body {
     align-items: center;
     font-size: 40px;
     color: #3687c4;
-
     position: relative;
 }
 
@@ -85,19 +84,15 @@ html, body {
     align-items: center;
 }
 
-.header-icon-selected {
-    color: #3687c4;
-    position: relative; 
-    font-size: 28px;
-}
-
 .header-icon:not(:last-of-type) {
     border-right: 1px solid #bcbec3;
 }
 
 /* header hint */
 .header-hint {
-    position: relative;
+    visibility: hidden;
+    position: absolute;
+    bottom: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -105,6 +100,16 @@ html, body {
     height: 50px;
     border-radius: 5px;
     border: 2px solid #d4d4d4;
+    font-size: 18px;
+}
+
+.header-icon:hover {
+    cursor: pointer;
+    color: #3687c4;
+}
+
+.header-icon:hover .header-hint {
+    visibility: visible;
 }
 
 /* hint triangle */
@@ -474,4 +479,3 @@ main {
     font-size: 26px;
     margin-bottom: 24px;
 }
-
