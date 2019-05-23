@@ -1,3 +1,9 @@
-function Model() {
-    this.loadedBooksArr = booksRequest();
-}
+(function(){
+    function Model() {
+        this.loadedBooksArr = booksRequest();
+    }
+
+    // export
+    window.app = window.app || {};
+    window.app.Model = Model
+}())
