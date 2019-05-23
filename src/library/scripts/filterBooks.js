@@ -15,12 +15,12 @@ function filterBooks(filterName) {
     });
 
     if (filterName === 'recent') {
-        console.log('recent');
         filteredBooksArr.sort((a, b) => {
             return a.createdAt > b.createdAt;
         });
     }
 
+    currentlyShownBooksArr = filteredBooksArr;
     renderBooks(filteredBooksArr);
 }
 
