@@ -2,7 +2,6 @@ function Book(bookObj) {
     var name = bookObj.title,
     author = `${bookObj.author.firstName} ${bookObj.author.lastName}`;
 
-
     var currentRating = bookObj.rating;
 
     this.getDOMElement = function() {

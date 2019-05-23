@@ -1,7 +1,9 @@
 var loadedBooksArr = [];
+var currentlyShownBooksArr = [];
 
 function JSONToBooks(JSON) {
     loadedBooksArr = JSON;
+    currentlyShownBooksArr = JSON;
 
     var booksSection = document.querySelector('.books__container');
     JSON.forEach(function(obj) {
