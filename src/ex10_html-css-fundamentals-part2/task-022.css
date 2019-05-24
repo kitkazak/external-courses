@@ -1,0 +1,13 @@
+.my-table__row td:nth-child(3),
+.my-table__row td:nth-child(4) {
+    text-align: left;
+}
+
+.my-table tr {
+    transition: background 0.5s;
+}
+
+.my-table tr:not(:first-child):hover {
+    background: #d3d4d5;
+    cursor: pointer;
+}
