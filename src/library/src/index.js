@@ -17,9 +17,5 @@
         }
     }
     
-    var library = new App();
-
-    // export
-    window.library = library;
-    console.log(window.library);
+    new App();
 }())

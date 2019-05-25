@@ -12,6 +12,16 @@
         return this.currentlyShownBooksArr;
     }
 
+    Model.prototype.getBookById = function(id) {
+        for (let i = 0; i < this.loadedBooksArr.length; i++) {
+            if (this.loadedBooksArr[i].id === id) {
+                return this.loadedBooksArr[i];
+            }
+        }
+
+        return null;
+    }
+
     // export
     window.app = window.app || {};
     window.app.Model = Model

@@ -10,6 +10,10 @@
     Controller.prototype.getCurrentlyShownBooksArr = function() {
         return this.model.getCurrentlyShownBooksArr();
     }
+
+    Controller.prototype.getBookById = function(id) {
+        return this.model.getBookById(id);
+    }
     
     // export
     window.app = window.app || {};

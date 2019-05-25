@@ -2,24 +2,83 @@
     function View(controller) {
         this.controller = controller;
 
+        var self = this;
+
         // DOM Elements
-        this.$booksContainer = document.querySelector('.books__container');   
+        this.$booksContainer = document.querySelector('.books__container');
+        
+        // Event handlers
+        this.__handleRatingContainerClick = function(e) {
+            if (e.target.tagName === 'UL' || e.target.tagName === 'DIV') return;
+            var target = e.target;
+
+            while (target.tagName !== 'LI') {
+                target = target.parentNode;
+            }
+
+            var bookId = Number(target.closest('.book').getAttribute('data-book-id')),
+            currentBook = controller.getBookById(bookId),
+            stars = target.parentNode.querySelectorAll('li');
+
+            var targetStarIndex;
+            for (let i = 0; i < stars.length; i++) {
+                if (target === stars[i]) {
+                    targetStarIndex = i + 1;
+                }
+            }
+    
+            if (targetStarIndex === currentBook.rating) {
+                currentBook.rating = 0;
+                this.replaceChild(
+                    self.__renderRating(0),
+                    this.querySelector('ul')
+                )
+            } else {
+                currentBook.rating = targetStarIndex;
+                this.replaceChild(
+                    self.__renderRating(targetStarIndex),
+                    this.querySelector('ul')
+                )           
+            }            
+        }
     }
     
     View.prototype.renderBooks = function() {
         var books = this.controller.getCurrentlyShownBooksArr();
         
         for (let i = 0; i < books.length; i++) {
-            var book = new Book(books[i]);
-            this.$booksContainer.appendChild(book.getDOMElement());
+            var book = this.createBook(books[i]);
+            this.$booksContainer.appendChild(book);
         }
     }
-    
-    function renderRating(bookObjRating) {
-        console.log()
-        var rating = bookObjRating,
+
+    View.prototype.createBook = function(bookObj) {
+        var book = document.createElement('div');
+        book.classList.add('book');
+        book.setAttribute('data-book-id', bookObj.id);
+
+        book.innerHTML = 
+        `
+            <div class="book__cover">
+                <img src="${bookObj.image_url}" alt="${bookObj.title}">
+            </div>
+            <h4 class="book__title">${bookObj.title}</h4>
+            <span class="book__author">by ${bookObj.author.firstName} ${bookObj.author.lastName}</span> 
+            <div class="book__rating"><div>
+        `;
+
+        var ratingContainer = book.querySelector('.book__rating');
+        ratingContainer.appendChild(this.__renderRating(bookObj.rating));
+        ratingContainer.addEventListener('click', this.__handleRatingContainerClick);
+        
+        return book;      
+    }
+
+    View.prototype.__renderRating = function(bookObjRating) {
+        console.log("it's here!");
+        var rating = bookObjRating;
         ratingContainer = document.createElement('ul');
-    
+
         for (let i = 0; i < 5; i++) {
             var starContainer = document.createElement('li');
             starIcon = document.createElement('i');
@@ -39,75 +98,6 @@
         }
     
         return ratingContainer;
-    }
-    
-    function Book(bookObj) {
-        var title = bookObj.title,
-        authorFirstName = bookObj.author.firstName,
-        authorLastName = bookObj.author.lastName,
-        imgUrl = bookObj.image_url,
-        rating = bookObj.rating,
-        currentRating = rating;
-    
-        this.getDOMElement = function() {
-            return DOMElement;
-        }
-    
-        var DOMElement = createBook();
-    
-        function createBook() {
-            var book = document.createElement('div');
-            book.classList.add('book');
-            book.setAttribute('data-book-id', bookObj.id);
-    
-            book.innerHTML = 
-            `
-                <div class="book__cover">
-                    <img src="${imgUrl}" alt="${title}">
-                </div>
-                <h4 class="book__title">${title}</h4>
-                <span class="book__author">by ${authorFirstName} ${authorLastName}</span> 
-                <div class="book__rating"><div>
-            `;
-    
-            var ratingContainer = book.querySelector('.book__rating');
-            ratingContainer.appendChild(renderRating(rating));
-            ratingContainer.addEventListener('click', handleRatingClick);
-            
-            return book;
-        }
-    
-        function handleRatingClick(e) {
-            if (e.target === this || e.target.tagName === 'UL') return;
-            var target = e.target;
-    
-            while (target.tagName !== 'LI') {
-                target = target.parentNode;
-            }
-    
-            var stars = this.querySelectorAll('li');
-            var targetStarIndex;
-    
-            for (let i = 0; i < stars.length; i++) {
-                if (target === stars[i]) {
-                    targetStarIndex = i + 1;
-                }
-            }
-    
-            if (targetStarIndex === currentRating) {
-                currentRating = 0;
-                this.replaceChild(
-                    renderRating(0),
-                    this.querySelector('ul')
-                )
-            } else {
-                currentRating = targetStarIndex;
-                this.replaceChild(
-                    renderRating(targetStarIndex),
-                    this.querySelector('ul')
-                )           
-            }
-        }
     }
 
     // export
