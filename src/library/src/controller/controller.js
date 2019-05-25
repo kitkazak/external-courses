@@ -14,6 +14,10 @@
     Controller.prototype.getBookById = function(id) {
         return this.model.getBookById(id);
     }
+
+    Controller.prototype.filterBooks = function(filterName) {
+        this.model.filterBooks(filterName);
+    }
     
     // export
     window.app = window.app || {};

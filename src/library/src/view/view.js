@@ -6,6 +6,7 @@
 
         // DOM Elements
         this.$booksContainer = document.querySelector('.books__container');
+        this.$filtersContainer = document.querySelector('.main__head-nav');
         
         // Event handlers
         this.__handleRatingContainerClick = function(e) {
@@ -41,11 +42,33 @@
                 )           
             }            
         }
+
+        this.__handleFiltersContainerClick = function(e) {
+            if (e.target.tagName === 'UL') return;
+            var target = e.target;
+
+            while (target.tagName !== 'LI') {
+                target = target.parentNode;
+            }
+
+            const classSelected = 'main__head-nav_selected';
+            if (target.classList.contains(classSelected)) return;
+
+            target.parentNode.querySelector(`.${classSelected}`)
+            .classList.remove(classSelected);
+            target.classList.add(classSelected);
+
+            const filterName = target.getAttribute('data-filter');
+            self.controller.filterBooks(filterName);
+            self.renderBooks(self.controller.getCurrentlyShownBooksArr());
+        }
+        this.$filtersContainer.addEventListener('click', this.__handleFiltersContainerClick);
     }
     
     View.prototype.renderBooks = function() {
         var books = this.controller.getCurrentlyShownBooksArr();
         
+        this.$booksContainer.innerHTML = '';
         for (let i = 0; i < books.length; i++) {
             var book = this.createBook(books[i]);
             this.$booksContainer.appendChild(book);
@@ -75,7 +98,6 @@
     }
 
     View.prototype.__renderRating = function(bookObjRating) {
-        console.log("it's here!");
         var rating = bookObjRating;
         ratingContainer = document.createElement('ul');
 
