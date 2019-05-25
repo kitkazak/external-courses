@@ -3,8 +3,12 @@
         this.model = model;
     }
     
-    Controller.prototype.getBooks = function() {
-        return this.model.loadedBooksArr;
+    Controller.prototype.getLoadedBooksArr = function() {
+        return this.model.getLoadedBooksArr();
+    }
+
+    Controller.prototype.getCurrentlyShownBooksArr = function() {
+        return this.model.getCurrentlyShownBooksArr();
     }
     
     // export

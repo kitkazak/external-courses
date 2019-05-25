@@ -1,14 +1,14 @@
 (function(){
     function View(controller) {
         this.controller = controller;
+
+        // DOM Elements
         this.$booksContainer = document.querySelector('.books__container');   
     }
     
-    View.prototype.renderBooks = renderBooks;
-    
-    function renderBooks() {
-        var books = this.controller.getBooks();
-    
+    View.prototype.renderBooks = function() {
+        var books = this.controller.getCurrentlyShownBooksArr();
+        
         for (let i = 0; i < books.length; i++) {
             var book = new Book(books[i]);
             this.$booksContainer.appendChild(book.getDOMElement());
