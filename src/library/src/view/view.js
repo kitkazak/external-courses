@@ -7,6 +7,8 @@
         // DOM Elements
         this.$booksContainer = document.querySelector('.books__container');
         this.$filtersContainer = document.querySelector('.main__head-nav');
+        this.$mainSearchForm = document.getElementById('main__search-form');
+        this.$mainSearchInput = this.$mainSearchForm.querySelector('input');
         
         // Event handlers
         this.__handleRatingContainerClick = function(e) {
@@ -59,16 +61,34 @@
             target.classList.add(classSelected);
 
             const filterName = target.getAttribute('data-filter');
-            self.controller.filterBooks(filterName);
-            self.renderBooks(self.controller.getCurrentlyShownBooksArr());
+            self.controller.setCurrentFilter(filterName);
+            var filteredBooksArr = self.controller.filterBooks();
+            self.renderBooks(filteredBooksArr);
         }
         this.$filtersContainer.addEventListener('click', this.__handleFiltersContainerClick);
+
+        this.__handleMainSearchFormSubmit = function(e) {
+            e.preventDefault();
+        }
+        this.$mainSearchForm.addEventListener('submit', this.__handleMainSearchFormSubmit);
+
+        this.__handleMainSearchInputInput = function(e) {
+            var inputText = this.value;
+            
+            var filteredBooksArr = self.controller.filterBooksBySearch(inputText.split(' ').map(word => {
+                return word.toLowerCase();
+            }));
+
+            if (inputText === '') filteredBooksArr = self.controller.getLoadedBooksArr();
+
+            self.renderBooks(filteredBooksArr);
+        }
+        this.$mainSearchInput.addEventListener('input', debounce(this.__handleMainSearchInputInput));
     }
     
-    View.prototype.renderBooks = function() {
-        var books = this.controller.getCurrentlyShownBooksArr();
-        
+    View.prototype.renderBooks = function(books) {
         this.$booksContainer.innerHTML = '';
+
         for (let i = 0; i < books.length; i++) {
             var book = this.createBook(books[i]);
             this.$booksContainer.appendChild(book);

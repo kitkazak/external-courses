@@ -1,15 +1,11 @@
 (function(){
     function Model() {
         this.loadedBooksArr = [];
-        this.currentlyShownBooksArr = [];
+        this.currentFilter = 'all';
     }
 
     Model.prototype.getLoadedBooksArr = function() {
         return this.loadedBooksArr;
-    }
-
-    Model.prototype.getCurrentlyShownBooksArr = function() {
-        return this.currentlyShownBooksArr;
     }
 
     Model.prototype.getBookById = function(id) {
@@ -22,9 +18,9 @@
         return null;
     }
 
-    Model.prototype.filterBooks = function(filterName) {
+    Model.prototype.filterBooks = function() {
         var filteredBooksArr = this.loadedBooksArr.filter(book => {
-            switch (filterName) {
+            switch (this.currentFilter) {
                 case 'popular':
                     if (book.rating === 5) return true;
                     break;
@@ -38,13 +34,46 @@
             return false;
         });
 
-        if (filterName === 'recent') {
+        if (this.currentFilter === 'recent') {
             filteredBooksArr.sort((a, b) => {
                 return a.createdAt > b.createdAt;
             });
         }
 
-        this.currentlyShownBooksArr = filteredBooksArr;
+        return filteredBooksArr;
+    }
+
+    Model.prototype.filterBooksBySearch = function(searchWords) {
+        var __filteredBooksArr = this.filterBooks();
+
+        var filteredBooksArr = __filteredBooksArr.filter(book => {
+            var checkWords = [
+                book.author.firstName.toLowerCase(),
+                book.author.lastName.toLowerCase()
+            ],
+
+            bookTitleWords = book.title.split(' ').map(word => {
+                return word.toLowerCase();
+            });
+
+            bookTitleWords.forEach(word => {
+                checkWords.push(word)
+            });
+
+            for (let i = 0; i < checkWords.length; i++) {
+                if (searchWords.includes(checkWords[i])) {
+                    return true;
+                }
+            }
+
+            return false;
+        });
+
+        return filteredBooksArr;
+    }
+
+    Model.prototype.setCurrentFilter = function(filterName) {
+        this.currentFilter = filterName;
     }
 
     // export

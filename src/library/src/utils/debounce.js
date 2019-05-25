@@ -12,6 +12,6 @@ function debounce(func) {
             clearTimeout(timer);
         }
   
-        timer = setTimeout(onComplete, 1000);
+        timer = setTimeout(onComplete, 500);
     };
 }

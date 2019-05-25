@@ -12,13 +12,9 @@
         view = this.view;
         function handleResponse(response) {
             model.loadedBooksArr = response;
-            model.currentlyShownBooksArr = response;
-            view.renderBooks();
+            view.renderBooks(model.getLoadedBooksArr());
         }
     }
     
-    // new App();
-    var library = new App();
-    window.library = library;
-    console.log(library);
+    new App();
 }())
