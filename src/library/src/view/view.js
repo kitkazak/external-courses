@@ -9,6 +9,7 @@
         this.$filtersContainer = document.querySelector('.main__head-nav');
         this.$mainSearchForm = document.getElementById('main__search-form');
         this.$mainSearchInput = this.$mainSearchForm.querySelector('input');
+        this.$sidebarHistory = document.querySelector('.sidebar__history ul');
         
         // Event handlers
         this.__handleRatingContainerClick = function(e) {
@@ -42,7 +43,16 @@
                     self.__renderRating(targetStarIndex),
                     this.querySelector('ul')
                 )           
-            }            
+            }
+            
+            self.renderNewNoteToHistory({
+                event: 'rating-change',
+                title: currentBook.title,
+                author: {
+                    firstName: currentBook.author.firstName,
+                    lastName: currentBook.author.lastName
+                }
+            })
         }
 
         this.__handleFiltersContainerClick = function(e) {
@@ -64,6 +74,15 @@
             self.controller.setCurrentFilter(filterName);
             var filteredBooksArr = self.controller.filterBooks();
             self.renderBooks(filteredBooksArr);
+
+            self.renderNewNoteToHistory({
+                event: 'filter',
+                filterName: 
+                    (filterName === 'all') ? 'All Books' :
+                    (filterName === 'recent') ? 'Most Recent' :
+                    (filterName === 'popular') ? 'Most Popular' :
+                    'Free Books'
+            })
         }
         this.$filtersContainer.addEventListener('click', this.__handleFiltersContainerClick);
 
@@ -82,6 +101,18 @@
             if (inputText === '') filteredBooksArr = self.controller.filterBooks();
 
             self.renderBooks(filteredBooksArr);
+
+            if (inputText !== '') {
+                self.renderNewNoteToHistory({
+                    event: 'search',
+                    searchWords: inputText.split(' ').map((word, i) => {
+                        if (i !== 0) {
+                            return ' ' + word
+                        }
+                        return word
+                    })
+                })                
+            }
         }
         this.$mainSearchInput.addEventListener('input', debounce(this.__handleMainSearchInputInput));
     }
@@ -140,6 +171,98 @@
         }
     
         return ratingContainer;
+    }
+
+    View.prototype.renderNewNoteToHistory = function(noteDetails) {
+        var note = document.createElement('li'),
+            noteBirth = new Date();
+
+        note.innerHTML =
+        `
+        <i class="far fa-clock"></i>
+        <div class="sidebar__history-text">
+            <p>
+            </p>
+            <span class="sibebar__history-time">
+                Just now!
+            </span>
+        </div>
+        `;
+
+        var noteText = note.querySelector('p');
+
+        if (noteDetails.event === 'rating-change') {
+            noteText.innerHTML =
+            `
+            You changed rating of <b>${noteDetails.title}</b>  
+            by <b>${noteDetails.author.firstName} ${noteDetails.author.lastName}</b>
+            `
+        } else 
+        if (noteDetails.event === 'filter') {
+            noteText.innerHTML = 
+            `
+            You filtered books by using <b>${noteDetails.filterName}</b>
+            `
+        } else
+        if (noteDetails.event === 'search') {
+            noteText.innerHTML =
+            `
+            You searched books by following words: <b>"${noteDetails.searchWords}"</b>
+            `
+        }
+
+        var timeSpanElement = note.querySelector('span');
+
+        var self = this;
+        function renderNewTime(ms) {
+            timeSpanElement.innerHTML = self.__generateSidebarHistoryNoteTime(ms);
+        }
+
+        setInterval(function() {
+            renderNewTime((new Date()).getTime() - noteBirth.getTime())
+        }, 1000);
+
+        var allLiElements = this.$sidebarHistory.querySelectorAll('li');
+        if (allLiElements.length !== 3) {
+            this.$sidebarHistory.prepend(note)
+        } else {
+            this.$sidebarHistory.removeChild(
+                allLiElements[2]
+            );
+            this.$sidebarHistory.prepend(note)
+        }
+    }
+
+    View.prototype.__generateSidebarHistoryNoteTime = function(ms) {
+        var time = this.__msToTime(ms);
+
+        if (time.hours === 0 && time.minutes === 0 && time.seconds === 0) {
+            return 'Just now!'
+        }
+
+        var noteTime = '';
+        if (time.hours !== 0) noteTime += `${time.hours} hours, `;
+        if (time.minutes !== 0) noteTime += `${time.minutes} minutes, `;
+        noteTime += `${time.seconds} seconds ago`;
+
+        return noteTime;
+    }
+
+    View.prototype.__msToTime = function(s) {
+        var ss = s;
+        
+        var ms = ss % 1000;
+        ss = (ss - ms) / 1000;
+        var secs = ss % 60;
+        ss = (ss - secs) / 60;
+        var mins = ss % 60;
+        var hrs = (ss - mins) / 60;
+
+        return {
+            hours: hrs,
+            minutes: mins,
+            seconds: secs
+        }
     }
 
     // export
