@@ -79,7 +79,7 @@
                 return word.toLowerCase();
             }));
 
-            if (inputText === '') filteredBooksArr = self.controller.getLoadedBooksArr();
+            if (inputText === '') filteredBooksArr = self.controller.filterBooks();
 
             self.renderBooks(filteredBooksArr);
         }
