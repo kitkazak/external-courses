@@ -3,6 +3,10 @@
         this.model = model;
     }
     
+    Controller.prototype.setBooksArr = function(arr) {
+        this.model.setBooksArr(arr)
+    }
+
     Controller.prototype.getLoadedBooksArr = function() {
         return this.model.getLoadedBooksArr();
     }

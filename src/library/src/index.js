@@ -4,7 +4,7 @@
         this.controller = new window.app.Controller(this.model);
         this.view = new window.app.View(this.controller);
         
-        initialRequest(this.model, this.view);
+        initialRequest(this.controller, this.view);
     }
     
     new App();

@@ -4,6 +4,10 @@
         this.currentFilter = 'all';
     }
 
+    Model.prototype.setBooksArr = function(arr) {
+        this.loadedBooksArr = arr;
+    }
+
     Model.prototype.getLoadedBooksArr = function() {
         return this.loadedBooksArr;
     }
