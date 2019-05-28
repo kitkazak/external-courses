@@ -72,7 +72,7 @@
 
             const filterName = target.getAttribute('data-filter');
             self.controller.setCurrentFilter(filterName);
-            var filteredBooksArr = self.controller.filterBooks();
+            var filteredBooksArr = self.controller.getfilterBooks();
             self.renderBooks(filteredBooksArr);
 
             self.renderNewNoteToHistory({
@@ -94,11 +94,11 @@
         this.__handleMainSearchInputInput = function(e) {
             var inputText = this.value;
             
-            var filteredBooksArr = self.controller.filterBooksBySearch(inputText.split(' ').map(word => {
+            var filteredBooksArr = self.controller.getfilterBooksBySearch(inputText.split(' ').map(word => {
                 return word.toLowerCase();
             }));
 
-            if (inputText === '') filteredBooksArr = self.controller.filterBooks();
+            if (inputText === '') filteredBooksArr = self.controller.getfilterBooks();
 
             self.renderBooks(filteredBooksArr);
 

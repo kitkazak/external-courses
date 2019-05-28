@@ -11,12 +11,12 @@
         return this.model.getBookById(id);
     }
 
-    Controller.prototype.filterBooks = function() {
-        return this.model.filterBooks();
+    Controller.prototype.getfilterBooks = function() {
+        return this.model.getfilterBooks();
     }
 
-    Controller.prototype.filterBooksBySearch = function(searchWords) {
-        return this.model.filterBooksBySearch(searchWords);
+    Controller.prototype.getfilterBooksBySearch = function(searchWords) {
+        return this.model.getfilterBooksBySearch(searchWords);
     }
 
     Controller.prototype.setCurrentFilter = function(filterName) {

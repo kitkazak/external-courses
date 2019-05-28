@@ -18,7 +18,7 @@
         return null;
     }
 
-    Model.prototype.filterBooks = function() {
+    Model.prototype.getfilterBooks = function() {
         var filteredBooksArr = this.loadedBooksArr.filter(book => {
             switch (this.currentFilter) {
                 case 'popular':
@@ -43,8 +43,8 @@
         return filteredBooksArr;
     }
 
-    Model.prototype.filterBooksBySearch = function(searchWords) {
-        var __filteredBooksArr = this.filterBooks();
+    Model.prototype.getfilterBooksBySearch = function(searchWords) {
+        var __filteredBooksArr = this.getfilterBooks();
 
         var filteredBooksArr = __filteredBooksArr.filter(book => {
             var checkWords = [
