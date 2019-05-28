@@ -13,13 +13,11 @@
     }
 
     Model.prototype.getBookById = function(id) {
-        for (let i = 0; i < this.loadedBooksArr.length; i++) {
-            if (this.loadedBooksArr[i].id === id) {
-                return this.loadedBooksArr[i];
-            }
-        }
+        var book = this.loadedBooksArr.find(book => {
+            return book.id === id
+        });
 
-        return null;
+        return book ? book : null
     }
 
     Model.prototype.getfilterBooks = function() {

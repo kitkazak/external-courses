@@ -7,5 +7,5 @@
         initialRequest(this.controller, this.view);
     }
     
-    new App();
+    window.lib = new App(); console.log(window.lib);
 }())
