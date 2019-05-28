@@ -120,10 +120,10 @@
     View.prototype.renderBooks = function(books) {
         this.$booksContainer.innerHTML = '';
 
-        for (let i = 0; i < books.length; i++) {
-            var book = this.createBook(books[i]);
-            this.$booksContainer.appendChild(book);
-        }
+        books.forEach(book => {
+            var bookElement = this.createBook(book);
+            this.$booksContainer.appendChild(bookElement);
+        })
     }
 
     View.prototype.createBook = function(bookObj) {
