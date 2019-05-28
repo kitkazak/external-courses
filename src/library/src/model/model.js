@@ -20,7 +20,7 @@
         return book ? book : null
     }
 
-    Model.prototype.getfilterBooks = function() {
+    Model.prototype.getFilterBooks = function() {
         var filteredBooksArr = this.loadedBooksArr.filter(book => {
             switch (this.currentFilter) {
                 case 'popular':
@@ -45,30 +45,18 @@
         return filteredBooksArr;
     }
 
-    Model.prototype.getfilterBooksBySearch = function(searchWords) {
-        var __filteredBooksArr = this.getfilterBooks();
+    Model.prototype.getFilterBooksBySearch = function(searchWords) {
+        var __filteredBooksArr = this.getFilterBooks();
 
         var filteredBooksArr = __filteredBooksArr.filter(book => {
             var checkWords = [
-                book.author.firstName.toLowerCase(),
-                book.author.lastName.toLowerCase()
-            ],
+                book.author.firstName,
+                book.author.lastName
+            ]
+            .concat(book.title.split(' '))
+            .map(word => word.toLowerCase());
 
-            bookTitleWords = book.title.split(' ').map(word => {
-                return word.toLowerCase();
-            });
-
-            bookTitleWords.forEach(word => {
-                checkWords.push(word)
-            });
-
-            for (let i = 0; i < checkWords.length; i++) {
-                if (searchWords.includes(checkWords[i])) {
-                    return true;
-                }
-            }
-
-            return false;
+            return checkWords.some(word => searchWords.includes(word))
         });
 
         return filteredBooksArr;
