@@ -149,7 +149,7 @@
     }
 
     View.prototype.__renderRating = function(bookObjRating) {
-        var rating = bookObjRating;
+        var rating = bookObjRating,
         ratingContainer = document.createElement('ul');
 
         for (let i = 0; i < 5; i++) {
