@@ -1,6 +1,7 @@
 (function(){
     function View(controller) {
         this.controller = controller;
+        this.historyTimers = [];
 
         var self = this;
 
@@ -218,9 +219,10 @@
             timeSpanElement.innerHTML = self.__generateSidebarHistoryNoteTime(ms);
         }
 
-        setInterval(function() {
+        var timerId = setInterval(function() {
             renderNewTime((new Date()).getTime() - noteBirth.getTime())
         }, 1000);
+        this.historyTimers.push(timerId);
 
         var allLiElements = this.$sidebarHistory.querySelectorAll('li');
         if (allLiElements.length !== 3) {
@@ -229,6 +231,8 @@
             this.$sidebarHistory.removeChild(
                 allLiElements[2]
             );
+            clearInterval(this.historyTimers[0]);
+            this.historyTimers.shift();
             this.$sidebarHistory.prepend(note)
         }
     }
