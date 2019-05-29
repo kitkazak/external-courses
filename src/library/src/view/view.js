@@ -176,41 +176,41 @@
 
     View.prototype.renderNewNoteToHistory = function(noteDetails) {
         var note = document.createElement('li'),
-            noteBirth = new Date();
-
-        note.innerHTML =
-        `
-        <i class="far fa-clock"></i>
-        <div class="sidebar__history-text">
-            <p>
-            </p>
-            <span class="sibebar__history-time">
-                Just now!
-            </span>
-        </div>
-        `;
-
-        var noteText = note.querySelector('p');
+            noteBirth = new Date(),
+            noteText;
 
         if (noteDetails.event === 'rating-change') {
-            noteText.innerHTML =
+            noteText =
             `
             You changed rating of <b>${noteDetails.title}</b>  
             by <b>${noteDetails.author.firstName} ${noteDetails.author.lastName}</b>
             `
         } else 
         if (noteDetails.event === 'filter') {
-            noteText.innerHTML = 
+            noteText = 
             `
             You filtered books by using <b>${noteDetails.filterName}</b>
             `
         } else
         if (noteDetails.event === 'search') {
-            noteText.innerHTML =
+            noteText =
             `
             You searched books by following words: <b>"${noteDetails.searchWords}"</b>
             `
         }
+
+        note.innerHTML =
+        `
+        <i class="far fa-clock"></i>
+        <div class="sidebar__history-text">
+            <p>
+                ${noteText}
+            </p>
+            <span class="sibebar__history-time">
+                Just now!
+            </span>
+        </div>
+        `;        
 
         var timeSpanElement = note.querySelector('span');
 
