@@ -46,9 +46,7 @@
     }
 
     Model.prototype.getFilterBooksBySearch = function(searchWords) {
-        var __filteredBooksArr = this.getFilterBooks();
-
-        var filteredBooksArr = __filteredBooksArr.filter(book => {
+        return this.getFilterBooks().filter(book => {
             var checkWords = [
                 book.author.firstName,
                 book.author.lastName
@@ -57,9 +55,7 @@
             .map(word => word.toLowerCase());
 
             return checkWords.some(word => searchWords.includes(word))
-        });
-
-        return filteredBooksArr;
+        });;
     }
 
     Model.prototype.setCurrentFilter = function(filterName) {
