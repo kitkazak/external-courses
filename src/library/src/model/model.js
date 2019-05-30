@@ -1,4 +1,6 @@
 (function(){
+    'use strict';
+
     function Model() {
         this.loadedBooksArr = [];
         this.currentFilter = 'all';

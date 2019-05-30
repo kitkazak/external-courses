@@ -1,4 +1,6 @@
 (function(){
+    'use strict';
+
     function Controller(model) {
         this.model = model;
     }

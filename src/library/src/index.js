@@ -1,4 +1,6 @@
 (function(){
+    'use strict';
+
     function App() {
         this.model = new window.app.Model();
         this.controller = new window.app.Controller(this.model);

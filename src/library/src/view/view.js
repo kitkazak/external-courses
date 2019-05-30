@@ -1,4 +1,6 @@
 (function(){
+    'use strict';
+
     function View(controller) {
         this.controller = controller;
         this.historyTimers = [];
@@ -154,7 +156,7 @@
         ratingContainer = document.createElement('ul');
 
         for (let i = 0; i < 5; i++) {
-            var starContainer = document.createElement('li');
+            var starContainer = document.createElement('li'),
             starIcon = document.createElement('i');
     
             starIcon.setAttribute('aria-hidden', 'true');
