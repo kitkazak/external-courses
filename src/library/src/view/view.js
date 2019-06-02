@@ -13,8 +13,39 @@
         this.$mainSearchForm = document.getElementById('main__search-form');
         this.$mainSearchInput = this.$mainSearchForm.querySelector('input');
         this.$sidebarHistory = document.querySelector('.sidebar__history ul');
+        this.$addButton = document.querySelector('.sidebar__add-button button');
+        this.$modal = document.querySelector('.modal');
+        this.$modalCloseButton = this.$modal.querySelector('i');
+        this.$newBookForm = document.querySelector('.new-book');
+        this.$newBookSubmit = this.$newBookForm.querySelector('input[type="submit"]')
         
         // Event handlers
+        this.__handleAddButtonClick = () => {
+            this.$modal.classList.add('modal_shown')
+        }
+        this.$addButton.addEventListener('click', this.__handleAddButtonClick);
+
+        this.__handleModalClick = (e) => {
+            if (e.target === this.$modal) this.$modal.classList.remove('modal_shown')
+        }
+        this.$modal.addEventListener('click', this.__handleModalClick);
+
+        this.__handleModalCloseButtonClick = () => {
+            this.$modal.classList.remove('modal_shown')
+        }
+        this.$modalCloseButton.addEventListener('click', this.__handleModalCloseButtonClick);
+
+        this.__handleNewBookFormSubmit = (e) => {
+            e.preventDefault();
+
+            let newBook = this.createBookObjFromForm();
+            this.$newBookForm.reset();
+            this.$modal.classList.remove('modal_shown');
+            this.controller.addNewBook(newBook);
+            this.renderBooks(this.controller.getLoadedBooksArr())
+        }
+        this.$newBookForm.addEventListener('submit', this.__handleNewBookFormSubmit);
+
         this.__handleRatingContainerClick = function(e) {
             if (e.target.tagName === 'UL' || e.target.tagName === 'DIV') return;
             var target = e.target;
@@ -119,13 +150,32 @@
         }
         this.$mainSearchInput.addEventListener('input', debounce(this.__handleMainSearchInputInput));
     }
+
+    View.prototype.createBookObjFromForm = function() {
+        let inputs = this.$newBookForm.elements;
+        let date = (new Date()).getTime();
+
+        return {
+            id: this.controller.getLastBookId() + 1,
+            title: inputs.title.value,
+            author: {
+                firstName: inputs['author-firstname'].value,
+                lastName: inputs['author-lastname'].value
+            },
+            cost: Number(inputs.cost.value),
+            rating: Number(inputs.rating.value),
+            image_url: inputs.url.value,
+            createdAt: date,
+            uptadedAt: date
+        }
+    }
     
     View.prototype.renderBooks = function(books) {
         this.$booksContainer.innerHTML = '';
 
         books.forEach(book => {
             var bookElement = this.createBook(book);
-            this.$booksContainer.appendChild(bookElement);
+            this.$booksContainer.prepend(bookElement);
         })
     }
 

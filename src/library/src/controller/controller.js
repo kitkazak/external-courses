@@ -4,6 +4,14 @@
     function Controller(model) {
         this.model = model;
     }
+
+    Controller.prototype.addNewBook = function(newBook) {
+        this.model.addNewBook(newBook)
+    }
+
+    Controller.prototype.getLastBookId = function() {
+        return this.model.getLastBookId();
+    }
     
     Controller.prototype.setBooksArr = function(arr) {
         this.model.setBooksArr(arr)

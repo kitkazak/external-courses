@@ -6,6 +6,18 @@
         this.currentFilter = 'all';
     }
 
+    Model.prototype.getLastBookId = function() {
+        let ids = this.loadedBooksArr.map(book => {
+            return book.id
+        });
+
+        return Math.max(...ids);
+    }
+
+    Model.prototype.addNewBook = function(newBook) {
+        this.loadedBooksArr.push(newBook)
+    }
+
     Model.prototype.setBooksArr = function(arr) {
         this.loadedBooksArr = arr;
     }

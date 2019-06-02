@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="styles/modal.css">
     <title>Library</title>
 </head>
 <body>
@@ -85,6 +86,66 @@
             </div>
         </div>
     </footer>
+    <div class="modal">
+        <form action="" class="new-book">
+            <div class="new-book__header">
+                <h2>Complete the Form</h2>
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div class="new-book__main">
+                <div class="new-book__column">
+                    <div class="new-book__row">
+                        <label>Book Title</label>
+                        <input type="text" name="title" required>
+                    </div>
+                    <div class="new-book__row">
+                        <label>Author First Name</label>
+                        <input type="text" name="author-firstname" required>
+                    </div>
+                    <div class="new-book__row">
+                        <label>Author Last Name</label>
+                        <input type="text" name="author-lastname" required>
+                    </div>
+                    <div class="new-book__row">
+                        <label>Book Cost</label>
+                        <input type="number" name="cost" min="0" required>
+                    </div>
+                    <div class="new-book__row">
+                        <label>Book Rating</label>
+                        <input type="number" name="rating" min="1" max="5" required>
+                    </div>
+                </div>
+                <div class="new-book__column">
+                    <div class="new-book__row">
+                        <label>Book Cover URL</label>
+                        <input type="url" name="url" required>
+                    </div>
+                    <div class="new-book__row">
+                        <label>Book Categories</label>
+                        <div class="new-book__checkboxes-container">
+                            <div class="new-book__checkbox">
+                                <input type="checkbox" name="categories" value="must_read">
+                                <label>Must Read Titles</label>
+                            </div>
+                            <div class="new-book__checkbox">
+                                <input type="checkbox" name="categories" value="best">
+                                <label>Best of List</label>
+                            </div>
+                            <div class="new-book__checkbox">
+                                <input type="checkbox" name="categories" value="classic">
+                                <label>Classic Novels</label>
+                            </div>
+                            <div class="new-book__checkbox">
+                                <input type="checkbox" name="categories" value="non_fiction">
+                                <label>Non Fiction</label>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input class="new-book__submit" type="submit" value="Add a Book!">
+        </form>
+    </div>
     
     <script src="utils/initialRequest.js"></script>
     <script src="utils/msToTime.js"></script>

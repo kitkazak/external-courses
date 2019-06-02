@@ -9,5 +9,6 @@
         initialRequest(this.controller, this.view);
     }
     
-    new App();
+    window.app = new App();
+    console.log(window.app)
 }())
