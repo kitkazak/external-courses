@@ -1,88 +1,88 @@
 .main {
-    padding: 45px 0 0 200px;
-    width: 100%;
-    height: calc(100vh - 45px);
-    position: relative;
+  padding: 45px 0 0 200px;
+  width: 100%;
+  height: calc(100vh - 45px);
+  position: relative;
 }
 
 .main__head {
-    background: #eef1f7;
-    position: absolute;
-    width: calc(100% - 200px);
+  background: #eef1f7;
+  position: absolute;
+  width: calc(100% - 200px);
 }
 
-.main__header, .main__head-menu {
-    border-bottom: 1px solid #dadfea;
+.main__header,
+.main__head-menu {
+  border-bottom: 1px solid #dadfea;
 }
 
 .main__header {
-    font-weight: 400;
-    font-size: 24px;
-    margin: 0;
-    padding: 20px 20px;
-    color: #444c63;
+  font-weight: 400;
+  font-size: 24px;
+  margin: 0;
+  padding: 20px 20px;
+  color: #444c63;
 }
 
 .main__head-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 14px;
 }
 
 .main__head-menu ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .main__head-menu ul li {
-    display: inline-block;
-    padding: 4px 10px;
-    border-radius: 15px;
-    margin-right: 5px;
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 15px;
+  margin-right: 5px;
 }
 
 .main__head-nav_selected {
-    color: white;
-    background: #97b3ce;
+  color: white;
+  background: #97b3ce;
 }
 
 .main__head-menu ul li:hover:not(.main__head-nav_selected) {
-    color: #444c63;
-    cursor: pointer;
+  color: #444c63;
+  cursor: pointer;
 }
 
 /* Form */
 
 #main__search-form {
-    position: relative;
+  position: relative;
 }
 
 #main__search-form input[type="text"] {
-    border: 1px solid #dadfea;
-    border-radius: 15px;
-    padding: 0 38px 0 18px;
-    width: 400px;
-    height: 32px;
-
+  border: 1px solid #dadfea;
+  border-radius: 15px;
+  padding: 0 38px 0 18px;
+  width: 400px;
+  height: 32px;
 }
 
 #main__search-form button[type="submit"] {
-    border: none;
-    background: transparent;
-    display: flex;
-    font-size: 14px;
-    position: absolute;
-    right: 5px;
-    top: 0;
-    align-items: center;
-    height: 100%;
-    color: #8c97b2;
+  border: none;
+  background: transparent;
+  display: flex;
+  font-size: 14px;
+  position: absolute;
+  right: 5px;
+  top: 0;
+  align-items: center;
+  height: 100%;
+  color: #8c97b2;
 }
 
 #main__search-form button[type="submit"]:hover {
-    cursor: pointer;
-    color: #444c63;
+  cursor: pointer;
+  color: #444c63;
 }

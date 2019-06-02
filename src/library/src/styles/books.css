@@ -1,67 +1,67 @@
 .books {
-    position: absolute;
-    width: calc(100% - 200px);
-    height: calc(100% - 45px - 123px);
-    top: calc(123px + 45px);
-    overflow-x: hidden;
-    overflow-y: scroll;
+  position: absolute;
+  width: calc(100% - 200px);
+  height: calc(100% - 45px - 123px);
+  top: calc(123px + 45px);
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .books__container {
-    padding: 30px 20px 0;
-    display: flex;
-    flex-wrap: wrap;
+  padding: 30px 20px 0;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .books__blank-space {
-    height: 100px;
+  height: 100px;
 }
 
 .book {
-    margin: 0 20px 30px 0;
+  margin: 0 20px 30px 0;
 }
 
 .book__cover {
-    width: 200px;
-    height: 275px;
-    overflow: hidden;
+  width: 200px;
+  height: 275px;
+  overflow: hidden;
 }
 
 .book__cover img {
-    width: 100%;
+  width: 100%;
 }
 
 .book__title {
-    font-weight: 400;
-    font-size: 16px;
-    color: #444c63;
-    margin: 15px 0 0;
+  font-weight: 400;
+  font-size: 16px;
+  color: #444c63;
+  margin: 15px 0 0;
 }
 
 .book__author {
-    display: block;
-    font-size: 14px;
-    margin: 5px 0 0;
+  display: block;
+  font-size: 14px;
+  margin: 5px 0 0;
 }
 
 .book__rating {
-    display: inline-block;
+  display: inline-block;
 }
 
 .book__rating ul {
-    margin: 0;
-    padding: 5px;
-    display: inline-block;
-    list-style-type: none;
-    position: relative;
-    right: 5px;
+  margin: 0;
+  padding: 5px;
+  display: inline-block;
+  list-style-type: none;
+  position: relative;
+  right: 5px;
 }
 
 .book__rating li {
-    display: inline-block;
-    color: #ffab00;
+  display: inline-block;
+  color: #ffab00;
 }
 
 .book__rating li:hover {
-    cursor: pointer;
+  cursor: pointer;
 }

@@ -1,18 +1,18 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
 /* font-family: 'Roboto', sans-serif; */
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    color: #8c97b2;
-    font-size: 14px;
-    margin: 0;
-    overflow-x: hidden;
+  font-family: "Roboto", sans-serif;
+  color: #8c97b2;
+  font-size: 14px;
+  margin: 0;
+  overflow-x: hidden;
 }
 
 main {
-    min-width: 1070px;
+  min-width: 1070px;
 }
