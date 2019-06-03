@@ -1,0 +1,35 @@
+.footer {
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  bottom: 0;
+  height: 45px;
+  width: 100%;
+  background: #181e2c;
+}
+
+.footer__inner {
+  display: flex;
+  height: 45px;
+}
+
+.footer__info,
+.footer__settings {
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.footer__info {
+  background: #1f2637;
+}
+
+.footer__settings {
+  background: #15a4fa;
+}
+
+.footer__info:hover,
+.footer__settings:hover {
+  cursor: pointer;
+}

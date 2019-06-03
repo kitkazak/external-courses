@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="src/">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/config.css">
+    <link rel="stylesheet" href="styles/main-head.css">
+    <link rel="stylesheet" href="styles/books.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="styles/modal.css">
+    <title>Library</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <ul>
+                <li>Help Center</li>
+                <li>Out Support</li>
+            </ul>
+            <div class="header__profile">
+                <div class="header__avatar"></div>
+                <span class="header__name">John Doe</span><i class="fas fa-check"></i>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <section class="main__head">
+            <h2 class="main__header">Browse Available Books</h2>
+            <div class="main__head-menu">
+                <ul class="main__head-nav">
+                    <li class="main__head-nav_selected" data-filter="all">All Books</li><li data-filter="recent">Most Recent</li><li data-filter="popular">Most Popular</li><li data-filter="free">Free Books</li>
+                </ul>
+                <form id="main__search-form" action="#">
+                    <input type="text" name="seacrh" id="main__search-input" placeholder="Enter Keywords">
+                    <button type="submit" form="main__search-form"><i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </input>
+                </form>
+            </div>
+        </section>
+        <section class="books">
+            <div class="books__container"></div>
+            <div class="books__blank-space"></div>
+        </section>
+    </main>
+    <aside class="sidebar">
+        <div class="sidebar__add-button sidebar__panel">
+            <button><i class="fas fa-plus"></i><span>add a book</span></button>   
+        </div>
+        <div class="sidebar__menu sidebar__panel">
+            <ul>
+                <li><a href="#"><i class="fas fa-book"></i>now reading</a></li>
+                <li class="sidebar__menu-el_selected"><a href="#"><i class="fas fa-globe-europe"></i>browse</a></li>
+                <li><a href="#"><i class="fas fa-shopping-cart"></i>buy books</a></li>
+                <li><a href="#"><i class="fas fa-star"></i>favourite books</a></li>
+                <li><a href="#"><i class="fas fa-chevron-circle-down"></i>wishlist</a></li>
+                <li><a href="#"><i class="far fa-clock"></i>history</a></li>
+            </ul>
+        </div>
+        <div class="sidebar__legend sidebar__panel">
+            <ul>
+                <li><i class="fas fa-circle" style="color: #e64c66"></i>must read titles</li>
+                <li><i class="fas fa-circle" style="color: #ffab00"></i>best of list</li>
+                <li><i class="fas fa-circle" style="color: #00bfdd"></i>classic novels</li>
+                <li><i class="fas fa-circle" style="color: #787fff"></i>non fiction</li>
+            </ul>            
+        </div>
+        <div class="sidebar__history sidebar__panel">
+            <ul>
+            </ul>
+            <div class="sidebar__history-blank-space"></div>
+        </div>        
+    </aside>
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__info">
+                <i class="far fa-question-circle"></i> 
+            </div>
+            <div class="footer__settings">
+                <i class="fas fa-cog"></i>
+            </div>
+        </div>
+    </footer>
+    <div class="modal">
+        <form action="" class="new-book">
+            <div class="new-book__header">
+                <h2>Complete the Form</h2>
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div class="new-book__main">
+                <div class="new-book__column">
+                    <div class="new-book__row">
+                        <label>Book Title</label>
+                        <input type="text" name="title" required>
+                    </div>
+                    <div class="new-book__row">
+                        <label>Author First Name</label>
+                        <input type="text" name="author-firstname" required>
+                    </div>
+                    <div class="new-book__row">
+                        <label>Author Last Name</label>
+                        <input type="text" name="author-lastname" required>
+                    </div>
+                    <div class="new-book__row">
+                        <label>Book Cost</label>
+                        <input type="number" name="cost" min="0" required>
+                    </div>
+                    <div class="new-book__row">
+                        <label>Book Rating</label>
+                        <input type="number" name="rating" min="1" max="5" required>
+                    </div>
+                </div>
+                <div class="new-book__column">
+                    <div class="new-book__row">
+                        <label>Book Cover URL</label>
+                        <input type="url" name="url" required>
+                    </div>
+                    <div class="new-book__row">
+                        <label>Book Categories</label>
+                        <div class="new-book__checkboxes-container">
+                            <div class="new-book__checkbox">
+                                <input type="checkbox" name="categories" value="must_read">
+                                <label>Must Read Titles</label>
+                            </div>
+                            <div class="new-book__checkbox">
+                                <input type="checkbox" name="categories" value="best">
+                                <label>Best of List</label>
+                            </div>
+                            <div class="new-book__checkbox">
+                                <input type="checkbox" name="categories" value="classic">
+                                <label>Classic Novels</label>
+                            </div>
+                            <div class="new-book__checkbox">
+                                <input type="checkbox" name="categories" value="non_fiction">
+                                <label>Non Fiction</label>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input class="new-book__submit" type="submit" value="Add a Book!">
+        </form>
+    </div>
+    
+    <script src="utils/initialRequest.js"></script>
+    <script src="utils/msToTime.js"></script>
+    <script src="utils/debounce.js"></script>
+    <script src="model/model.js"></script>
+    <script src="view/view.js"></script>
+    <script src="controller/controller.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
