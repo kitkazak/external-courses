@@ -38,16 +38,12 @@
     var filteredBooksArr = this.loadedBooksArr.filter(book => {
       switch (this.currentFilter) {
         case "popular":
-          if (book.rating === 5) return true;
-          break;
+          return book.rating === 5;
         case "free":
-          if (book.cost === 0) return true;
-          break;
+          return book.cost === 0;
         default:
           return true;
       }
-
-      return false;
     });
 
     if (this.currentFilter === "recent") {
